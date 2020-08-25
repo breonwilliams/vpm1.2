@@ -1,0 +1,54 @@
+{% block html_head_container %}
+    {% include 'html-header.twig' %}
+    {% block head %}
+    {% endblock %}
+    </head>
+{% endblock %}
+<body class="{{body_class}}" data-template="base.twig">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MRFS2Q6"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+{% block header %}
+    {% include 'partials/header.twig' %}
+{% endblock header %}
+
+     <div style="flex-grow: 1;">
+      <section id="content" role="main" class="wrapper content-wrapper">
+          {#<div class="entry-content">
+          {% if title %}<h1>{{title}}</h1>{% endif %}
+            <div class="wrapper {{sidebar_class}}"> #}
+                {% block content %}
+                    Sorry, no content
+                {% endblock %}
+            {# </div>
+          </div><!-- /.entry-content -->#}
+      </section>
+    </div>
+{% block javascripts%}
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    {# <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> #}
+
+    <!--CDN link for GSAP TweenLite-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.0/TweenLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.0/easing/EasePack.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js"></script>
+
+    <!--VP Animation Library: Built off GSAP-->
+    <script src="{{site.theme.link}}/assets/src/js/animation.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+    <script src="{{site.theme.link}}/assets/src/js/scrolloverflow.js"></script>
+
+    <script src="{{site.theme.link}}/assets/src/js/fullpage.extensions.min.js"></script>
+
+    <script src="{{site.theme.link}}/assets/src/js/homepage.js"></script>
+{% endblock %}
+</body>
+</html>

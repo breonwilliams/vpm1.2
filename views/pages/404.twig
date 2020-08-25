@@ -1,0 +1,32 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+  <div class="page-header">
+    <div class="container">
+      {% if title %}<h1 class="article-h1">{{title}}</h1>{% endif %}
+    </div>
+  </div>
+
+	<div class="container">
+    <div class="page-content">
+      <p>Hello. It looks like you’ve got the wrong URL. Not to worry, the page you are looking for probably changed a bit when we launched our new website.</p>
+
+      <p>You can find pretty much any higher education marketing information you’re looking for on <a href="/eduinsights">eduInsights</a>. It’s our resource center full of articles, case studies, Marketer’s Guides and presentations.</p>
+
+      <p>If you’re looking for more information about the <a href="/about-us">company</a>, <a href="/team">our team</a> or <a href="/about-us/careers">available positions</a>,  we’ve got all of that too!</p>
+
+      <div class="row">
+        <div class="col-md-6">
+          <a class="vp-button" href="/about-us/">Learn More About Us</a>
+        </div>
+
+        <div class="col-md-6">
+            <a class="vp-button" href="/eduinsights">Visit eduInsights</a>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+  </div>
+{% endblock %}

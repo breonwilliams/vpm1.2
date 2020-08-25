@@ -1,0 +1,18 @@
+.breadcrumbs {
+  margin-bottom: 0;
+
+  a {
+    color: $vp-brown-grey;
+    // text-transform: lowercase;
+    @include font-size(1);
+  }
+}
+.top-level-link {
+  margin-bottom: 0;
+  a {
+    font-family: $font-family-bold-sans-serif;
+    text-transform: uppercase;
+    color: $vp-orange;
+    @include font-size(1.5);
+  }
+}

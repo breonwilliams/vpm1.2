@@ -1,0 +1,303 @@
+
+// //! Galleries
+// .wp-block-gallery {
+// 	list-style-type: none;
+// 	padding-left: 0;
+
+// 	.blocks-gallery-image:last-child,
+// 	.blocks-gallery-item:last-child {
+// 		margin-bottom: 16px;
+// 	}
+
+// 	figcaption a {
+// 		color: #fff;
+// 	}
+// }
+
+// //! Captions
+// .wp-block-audio figcaption,
+// .wp-block-video figcaption,
+// .wp-block-image figcaption,
+// .wp-block-gallery .blocks-gallery-image figcaption,
+// .wp-block-gallery .blocks-gallery-item figcaption {
+// 	font-size: $font__size-xs;
+// 	@include font-family( $font__heading );
+// 	line-height: $font__line-height-pre;
+// 	margin: 0;
+//   padding: ($ * .5 );
+// 	text-align: center;
+// }
+
+// //! Separator
+// .wp-block-separator,
+// hr {
+// 	background-color: $color__text-light;
+// 	border: 0;
+// 	height: 2px;
+//   margin-bottom: (2 *$);
+//   margin-top: (2 *$);
+// 	max-width: 2.25em;
+// 	text-align: left;
+
+// 	&.is-style-wide {
+// 		max-width: 100%;
+// 		@include postContentMaxWidth();
+// 	}
+
+// 	&.is-style-dots {
+// 		max-width: 100%;
+// 		@include postContentMaxWidth();
+// 		background-color: inherit;
+// 		border: inherit;
+// 		height: inherit;
+// 		text-align: center;
+
+// 		&:before {
+// 			color: $color__text-light;
+// 			font-size:-;
+// 			letter-spacing-$font__size-sm;
+// 			padding-left-$font__size-sm;
+// 		}
+// 	}
+
+// 	/* Remove duplicate rule-line when a separator
+// 	 * is followed by an H1, or H2 */
+// 	& + h1,
+// 	& + h2 {
+
+// 		&:before {
+// 			display: none;
+// 		}
+// 	}
+// }
+
+// 	//! Twitter Embed
+// 	.wp-block-embed-twitter {
+// 		word-break: break-word;
+// 	}
+
+// 	//! Table
+// 	.wp-block-table {
+
+// 		th,
+// 		td {
+// 			border-color: $color__text-light;
+// 		}
+// 	}
+
+// 	//! File
+// 	.wp-block-file {
+// 		@include font-family( $font__heading );
+
+// 		.wp-block-file__button {
+// 			display: table;
+// 			@include button-transition;
+// 			border: none;
+// 			border-radius: 5px;
+// 			background: $color__background-button;
+// 			font-size: $font__size-base;
+// 			@include font-family( $font__heading );
+// 			line-height: $font__line-height-heading;
+// 			text-decoration: none;
+// 			font-weight: bold;
+//       padding: (space      * .75)$;
+// 			color: #fff;
+// 			margin-left: 0;
+//       margin-top: calc(0.75 * #{space      });
+
+// 			@include media(desktop) {
+// 				font-size: $font__size-base;
+//         padding: (spacer
+//       * .875) (spacer * 1.5);
+// 			}
+
+// 			&:hover {
+// 				background: $color__background-button-hover;
+// 				cursor: pointer;
+// 			}
+
+// 			&:focus {
+// 				background: $color__background-button-hover;
+// 				outline: thin dotted;
+// 				outline-offset: -4px;
+// 			}
+// 		}
+// 	}
+
+// 	//! Code
+// 	.wp-block-code {
+// 		border-radius: 0;
+
+// 		code {
+// 			font-size: $font__size-md;
+// 			white-space: pre-wrap;
+// 			word-break: break-word;
+// 		}
+// 	}
+
+// 	//! Columns
+// 	.wp-block-columns {
+
+// 		.wp-block-column > * {
+
+// 			&:first-child {
+// 				margin-top: 0;
+// 			}
+
+// 			&:last-child {
+// 				margin-bottom: 0;
+// 			}
+// 		}
+
+// 		@include media(tablet) {
+// 			flex-wrap: nowrap;
+
+// 			.wp-block-column:not(:first-child) {
+// 				margin-left: 32px;
+// 			}
+// 		}
+// 	}
+
+// 	//! Latest Comments
+// 	.wp-block-latest-comments {
+
+// 		.wp-block-latest-comments__comment-meta {
+// 			@include font-family( $font__heading );
+// 			font-weight: bold;
+
+// 			.wp-block-latest-comments__comment-date {
+// 				font-weight: normal;
+// 			}
+// 		}
+
+// 		.wp-block-latest-comments__comment,
+// 		.wp-block-latest-comments__comment-date,
+// 		.wp-block-latest-comments__comment-excerpt p {
+// 			font-size: inherit;
+// 		}
+
+// 		&.has-avatars {
+
+// 		}
+
+// 		&.has-dates {
+
+// 			.wp-block-latest-comments__comment-date {
+// 				font-size: $font__size-xs;
+// 			}
+// 		}
+
+// 		&.has-excerpts {
+
+// 		}
+// 	}
+
+// 	//! Font Sizes
+// 	.has-small-font-size {
+// 		font-size-$font__size-sm;
+// 	}
+
+// 	.has-normal-font-size {
+// 		font-size: $font__size-md;
+// 	}
+
+// 	.has-large-font-size {
+// 		font-size:-;
+// 	}
+
+// 	.has-huge-font-size {
+// 		font-size:-;
+// 	}
+
+// //! Latest posts, categories, archives
+// .wp-block-archives,
+// .wp-block-categories,
+// .wp-block-latest-posts {
+// 	padding: 0;
+// 	list-style: none;
+
+// 	li {
+// 		color: $color__text-light;
+// 		@include font-family( $font__heading );
+// 		font-size: calc(#{$font__size_base} * #{$font__size-ratio});
+// 		font-weight: bold;
+// 		line-height: $font__line-height-heading;
+//     padding-bottom: ( .75 * space      );
+
+// 		&.menu-item-has-children,
+// 		&:last-child {
+// 			padding-bottom: 0;
+// 		}
+
+// 		a {
+// 			text-decoration: none;
+// 		}
+// 	}
+// }
+
+  // //! Audio
+  // .wp-block-audio {
+  //   width: 100%;
+
+  //   audio {
+  //     width: 100%;
+  //   }
+
+  //   &.alignleft audio,
+  //   &.alignright audio {
+  //     max-width: (0.33 * $mobile_width);
+
+  //     @include media(tablet) {
+  //       max-width: (0.5 * $tablet_width);
+  //     }
+
+  //     @include media(wide) {
+  //       max-width: (0.33 * $desktop_width);
+  //     }
+  //   }
+  // }
+
+    // //! Latest posts grid view
+  // .wp-block-latest-posts.is-grid {
+  // 	li {
+  // 		border-top: 2px solid $color__border;
+  //     padding-top: (1 * space      );
+  //     margin-bottom: (2 * space      );
+  // 		a {
+  // 			&:after {
+  // 				content: '';
+  // 			}
+  // 		}
+  // 		&:last-child {
+  // 			margin-bottom: auto;
+  // 			a:after {
+  // 				content: '';
+  // 			}
+  // 		}
+  // 	}
+  // }
+
+  // //! Latest preformatted text
+  // .wp-block-preformatted {
+  // 	font-size: $font__size-xs;
+  // 	line-height: 1.8;
+  //   padding:$;
+  // }
+
+  // //! Verse
+  // .wp-block-verse {
+  // 	@include font-family( $font__body );
+  // 	font-size: $font__size_base;
+  // 	line-height: 1.8;
+  // }
+
+  // //! Paragraphs
+  // .has-drop-cap {
+  // 	&:not(:focus):first-letter {
+  // 		@include font-family( $font__heading );
+  // 		font-size: $font__size-xxxl;
+  // 		line-height: 1;
+  // 		font-weight: bold;
+  // 		margin: 0 0.25em 0 0;
+  // 	}
+  // }

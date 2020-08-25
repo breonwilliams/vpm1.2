@@ -1,0 +1,35 @@
+{% macro breadcrumbs( post ) %}
+
+{% set ancestors = function('get_post_ancestors', post.ID ) %}
+{% set ancpermalink = function('get_permalink' , ancestors|first) %}
+{% set type_slug = post.type.slug %}
+{% set separator = '  |  ' %}
+
+{# Blog posts #}
+{% if type_slug == 'post' %}
+  {% set type_label = 'eduInsights' %}
+  {% set type_url = '/eduinsights' %}
+{% endif %}
+
+{# Porftolio posts #}
+{% if type_slug == 'portfolio' %}
+  {% set type_label = 'portfolio' %}
+  {% set type_url = '/portfolio' %}
+{% endif %}
+
+<p class="breadcrumbs">
+
+  <span><a href="/">home</a></span>
+  <span class="separator">{{separator}}</span>
+  <span><a href="{{ type_url }}">{{ type_label }}</a></span>
+
+  {% for item in ancestors %}
+    <a href="{{ancpermalink}}">{{function('get_the_title', item )}}</a><span class="separator">{{separator}}</span>
+  {% endfor %}
+
+    <a href="{{ancpermalink}}#{% for term in post.terms %}{{term.taxonomy == 'section'?term.slug}}{% endfor%}">{% for term in post.terms %}{{term.taxonomy == 'section'?term.name}}{% endfor%}</a><span class="separator">{{separator}}</span>
+
+    <a href="{{post.link}}">{{post.title}}</a>
+
+</p>
+{% endmacro %}

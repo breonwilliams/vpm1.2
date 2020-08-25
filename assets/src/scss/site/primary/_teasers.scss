@@ -1,0 +1,126 @@
+//  EduInsights section
+.teaser-grid {
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  margin: 1rem 0 0 0;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  @include media(tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+}
+
+.teaser {
+  flex: 0 0 100%;
+  align-content: flex-end;
+  margin: $spacer * 2 0 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 80%;
+  transition: all 0.1s ease;
+  opacity: 1;
+  display: flex;
+  -webkit-animation: fadein 0.1s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 0.1s; /* Firefox < 16 */
+  -ms-animation: fadein 0.1s; /* Internet Explorer */
+  -o-animation: fadein 0.1s; /* Opera < 12.1 */
+  animation: fadein 0.1s;
+
+  @include media(tablet) {
+    // for tablet sizes, display teaser cards in 2 columns
+    flex: 0 0 48.5%;
+  }
+
+  @include media(desktop) {
+    // for desktop sizes, display teaser cards in 3 columns
+    flex: 0 0 31.333%;
+  }
+
+  &.two-col {
+    flex: 0 0 100%;
+    margin: $spacer 0;
+    min-height: 15rem;
+  }
+
+  @include media(tablet) {
+    min-height: 30rem;
+  }
+
+  @include media(mobile) {
+    &.two-col {
+      flex: 0 0 48.5%;
+      margin-top: $spacer;
+      min-height: 20rem;
+    }
+  }
+
+
+  .overlay {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-self: flex-end;
+    align-content: flex-end;
+    color: $vp-white;
+    background: rgba(0, 0, 0, 0.7);
+
+    // display gradient overlay on larger displayes only
+    @include media(tablet) {
+      @include vp-gradient(0, 5%, 0.8, 40%, 0.9, 90%);
+    }
+
+    a {
+      color: $vp-white;
+      &:focus {
+        @include focusOutline($vp-white);
+      }
+    }
+  }
+
+  .card-content {
+    padding: 1.25rem;
+    margin-top: auto;
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .category {
+    margin: $spacer 0;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    font-family: $font-family-bold-sans-serif;
+    line-height: calc(0.6 * $spacer);
+    text-transform: uppercase;
+    margin: 0 0 1rem 0;
+  }
+}
+
+.read-more {
+  color: $white;
+  font-family: $font-family-bold-sans-serif;
+  font-weight: bold;
+  display: block;
+  padding-top: $spacer;
+
+  &::after {
+    content: '\f30b';
+    display: inline-block;
+    margin: 0 0 0 $spacer * 0.5;
+    font-family: $font-family-fa;
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    font-weight: 900;
+    vertical-align: bottom;
+  }
+}

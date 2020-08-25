@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'gotham_bookregular';
+  src: url('/wp-content/themes/vpm/assets/build/fonts/gotham/gotham-book-webfont.woff2')
+      format('woff2'),
+    url('/wp-content/themes/vpm/assets/build/fonts/gotham/gotham-book-webfont.woff')
+      format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'gotham_boldregular';
+  src: url('/wp-content/themes/vpm/assets/build/fonts/gotham/gotham-bold-webfont.woff2')
+      format('woff2'),
+    url('/wp-content/themes/vpm/assets/build/fonts/gotham/gotham-bold-webfont.woff')
+      format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Archer-Italic';
+  src: url('/wp-content/themes/vpm/assets/build/fonts/archer/Archer-BookItalic.woff2')
+      format('woff2'),
+    url('/wp-content/themes/vpm/assets/build/fonts/archer/Archer-BookItalic.woff')
+      format('woff');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Archer-Medium-Italic';
+  src: url('/wp-content/themes/vpm/assets/build/fonts/archer/Archer-MediumItalic.woff2')
+      format('woff2'),
+    url('/wp-content/themes/vpm/assets/build/fonts/archer/Archer-MediumItalic.woff')
+      format('woff');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Archer-Light';
+  src: url('/wp-content/themes/vpm/assets/build/fonts/archer/Archer-Light.woff2')
+      format('woff2'),
+    url('/wp-content/themes/vpm/assets/build/fonts/archer/Archer-Light.woff')
+      format('woff');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+$font-family-sans-serif: 'gotham_bookregular', Roboto, Arial, sans-serif;
+$font-family-bold-sans-serif: 'gotham_boldregular', Roboto, Arial, sans-serif;
+$font-family-serif: 'Archer-Italic', Georgia, serif;
+$font-family-med-italic-serif: 'Archer-Medium-Italic', Georgia, serif;
+$font-family-light-serif: 'Archer-Light', Georgia, serif;
+$font-family-fa: 'Font Awesome 5 Free';
+$font-family-monospace: Menlo, Consolas, 'Courier New', monospace;
+$font-family-base: $font-family-sans-serif;
+
+$line-height-lg: 2;
+$line-height-sm: 1.15;
+$line-height-base: 1.5;

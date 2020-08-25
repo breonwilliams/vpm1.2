@@ -1,0 +1,25 @@
+{
+    "name": "timber-bootstrap4-wp-vpm",
+    "description": "A WordPress starter theme based on Timber library and Bootstrap 4.",
+    "type": "wordpress-theme",
+    "require": {
+        "timber/timber": "*",
+        "twbs/bootstrap": "^4.3",
+        "components/font-awesome": "^5.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "VPM Developers",
+            "email": "info@visionpointmarketing.com"
+        }
+    ],
+    "scripts": {
+        "post-install-cmd": [
+            "npm install"
+        ],
+        "post-update-cmd": [
+            "npm install"
+        ]
+    }
+}

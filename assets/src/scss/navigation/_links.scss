@@ -1,0 +1,25 @@
+a {
+  @include link-transition;
+  color: $vp-orange;
+
+  &:visited {
+    color: $vp-orange;
+  }
+
+  &:focus {
+    color: $vp-drkorange;
+    // Focus Indicator
+    @include focusOutline($vp-ltnavy);
+    text-decoration: underline;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:hover,
+  &:active {
+    color: $vp-drkorange;
+    outline: 0;
+  }
+}

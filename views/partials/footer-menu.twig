@@ -1,0 +1,12 @@
+{% if footermenu %}
+<h3>Explore</h3>
+<nav role="navigation" id="footer-nav" class="footer-navigation" aria-label="footer-navigation">
+  <ul class="list-unstyled list-inline">
+  {% for item in footermenu.get_items %}
+    <li class="{{ item.classes | join(' ') }} nav-item list-inline-item">
+      <a target="{{ item.target }}" href="{{ item.link }}" class="nav-link">{{ item.title }}</a>
+    </li>
+  {% endfor %}
+  </ul>
+</nav>
+{% endif %}

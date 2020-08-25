@@ -1,0 +1,11 @@
+<div class="teaser two-col" id="tease-{{post.ID}}" style="background-image: url(' {{ post.thumbnail.src }} ')">
+
+    <div class="overlay">
+      <div class="card-content">
+        <p class="category">
+          {{ post.terms('capability')|join(', ') }}
+        </p>
+        <h3 class="h3"><a href="{{post.link}}">{{post.title}}</a></h3>
+      </div>
+    </div>
+</div>

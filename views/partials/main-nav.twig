@@ -1,0 +1,37 @@
+<!-- MAIN NAVIGATION MENU
+---- show top level and second level links
+---- hide 2nd level links that have parent "Capabilities" (may change later
+---- when we have separate pages for Capabilities offerings)
+-->
+
+{% block nav %}
+  <div class="container">
+
+    <ul class="nav flex-column">
+      {% for item in menu.items %}
+        <li class="nav-main-item {{ item.classes|join(' ') }} nav-item">
+          <!-- add subnav open/close button if menu item has children, for mobile menu -->
+          {% if item.children and (item.slug != 'capabilities') %}
+            <div class="position-relative">
+              <button class="vp-subnav-icon collapsed" data-target="#vp-menu_subnav" data-toggle="collapse" aria-expanded="false" aria-label="Open submenu."></button>
+              <a class="nav-main-link" href="{{ item.link }}">{{ item.title }}</a>
+            </div>
+          {% else %}
+            <a class="nav-main-link" href="{{ item.link }}">{{ item.title }}</a>
+          {% endif %}
+
+          {% if item.children and (item.slug != 'capabilities') %}
+            <ul id="vp-menu_subnav" class="nav-drop collapse">
+              {% for child in item.children %}
+                <li class="nav-drop-item">
+                  <a href="{{ child.link }}">{{ child.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+
+  </div>
+{% endblock nav %}

@@ -1,0 +1,69 @@
+{% block header %}
+
+    <header role="banner" class="site-header">
+      <ul id="vp-skip-links">
+        <li>
+          <a class="vp-skip-link" href="#content">{{ __('Skip to content', 'branch' ) }}</a>
+        </li>
+      </ul>
+      <nav class="navbar navbar-light main-navigation" role="navigation" aria-label="header-navigation">
+        <div class="position-relative container">
+
+          <a class="site-logo" href="{{ site.url }}"><img src="{{ theme.link }}/assets/src/img/VPM-logo-stacked.svg" alt="VisionPoint Marketing"></a>
+
+          <!-- Button trigger modal -->
+          <button type="button" class="header-modal-button" data-toggle="modal" data-target="#inquiryModal">
+            <span class="vp-contact-cta-text">Let's Talk!</span>
+            <span class="vp-contact-cta-text_mobile">Let's Talk!</span>
+          </button>
+
+        <!-- Modal -->
+        <div class="modal fade header-modal" id="inquiryModal" tabindex="-1" role="dialog" aria-labelledby="inquiryModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-full" role="document">
+            <div class="modal-content">
+              <div class="position-relative container-fluid px-0">
+
+                <div class="container-fluid header-modal-wrap">
+                  <div class="container header-modal-header">
+                    <a class="site-logo" href="{{ site.url }}"><img src="{{ theme.link }}/assets/src/img/VPM-logo-stacked.svg" alt="VisionPoint Marketing"></a>
+
+                    <button type="button" class="close" data-dismiss="modal">
+                      <span class="sr-only">Close modal</span>
+                      <span class="fas fa-times" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="container modal-body px-md-5">
+                  <h2 class="modal-title" id="inquiryModalLabel">Tell us a bit about yourself</h2>
+                  {# Contact Us form #}
+                  {{ header_widget }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <button class="btn btn-primary navbar-btn pull-right header-menu-button"
+          type="button"
+          data-toggle="collapse"
+          data-target="#menu"
+          aria-controls="menu"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <div class="hamburger-box">
+              <span class="hamburger-inner">
+              </span>
+            </div>
+          </button>
+        </div>
+
+        <div class="panel panel-default panel-collapse collapse" id="menu">
+          {% include "partials/main-nav.twig" %}
+        </div>
+
+      </nav>
+
+    </header>
+{% endblock header %}

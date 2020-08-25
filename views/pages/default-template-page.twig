@@ -1,0 +1,59 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+		<article class="post-type-{{post.post_type}} entry" id="post-{{post.ID}}">
+        <div class="page-header">
+
+          {# Inner menu #}
+          {% if post.slug != "capabilities" %}
+            <div class="page-inner-navigation">
+              {% include "partials/inner-nav.twig" %}
+            </div>
+          {% endif %}
+
+          <div class="container">
+
+            {# Add link to parent if it exists #}
+            {% if post.post_parent %}
+              <div class="page-parent-link">
+                <a href="{{ post.parent.link }}">{{ post.parent.title }}</a>
+              </div>
+            {% endif%}
+
+            {% if post.meta('page_subtitle_1') or post.meta('page_subtitle_2') %}
+              <h1 class="article-h1 has-subtitle">{{post.title}}</h1>
+              <h2 class="subtitle">
+                <span class="subtitle-line-1">{{ post.meta('page_subtitle_1') }}</span>
+                <span class="subtitle-line-2">{{ post.meta('page_subtitle_2') }}</span>
+              </h2>
+
+            {% else %}
+              <h1 class="article-h1">{{post.title}}</h1>
+            {% endif %}
+
+            {# Anchor menu - temporary, for Capabilities page only#}
+            {% if post.slug == "capabilities" %}
+              <div class="page-anchor-navigation">
+                {% include "partials/anchor-nav.twig" %}
+              </div>
+            {% endif %}
+
+          </div>
+
+        </div>
+
+				<div class="container">
+          <div class="page-content">
+            {{post.content}}
+          </div>
+				</div>
+		</article>
+
+{% endblock %}
+
+{% block sidebar_1 %}
+  <div class="col-md-3">
+    {{left_sidebar}}
+  </div>
+{% endblock %}

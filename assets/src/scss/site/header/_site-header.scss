@@ -1,0 +1,346 @@
+/** === A11y skip link styles === */
+#vp-skip-links {
+  position: absolute;
+  margin: 0;
+  top: 0;
+  padding: 0;
+  z-index: 9999;
+  margin-bottom: 0;
+}
+
+.vp-skip-link {
+  position: absolute;
+  left: -99999px;
+  top: 0;
+}
+
+#vp-skip-links a:visited,
+#vp-skip-links a:focus,
+#vp-skip-links a:active {
+  position: absolute;
+  left: 0;
+  z-index: 9999;
+  width: 310px;
+  height: auto;
+  margin: 0 auto;
+  padding: 0.5rem;
+  text-align: left;
+  color: $vp-ltnavy;
+  background: $vp-white;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: inherit;
+  font-size: 16px;
+  font-size: rem(16, 16);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+}
+
+/** === Site header === */
+
+.site-header {
+  padding: 0;
+  @include media(tablet) {
+    margin: 0;
+  }
+}
+
+// Site logo
+
+.site-logo {
+  max-width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 999;
+  margin-bottom: calc(0.66 * #{$spacer});
+  width: 150px;
+  height: auto;
+
+  @include media(tablet) {
+    margin-bottom: 0;
+    z-index: 999;
+  }
+
+  img {
+    max-width: 100%;
+    // @include media(desktop) {
+    //   max-width: 125px;
+    // }
+  }
+}
+
+// Contact Us modal
+button.header-modal-button {
+  font-family: $font-family-bold-sans-serif;
+  font-size: 0.9rem;
+  line-height: 1;
+  color: $white;
+  text-transform: uppercase;
+  padding-bottom: 0px;
+  width: 95px;
+  height: 95px;
+  z-index: 2050;
+
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+  @include media(tablet) {
+    width: 160px;
+    height: 110px;
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  border: none;
+  position: absolute;
+  right: 58px;
+  @include media(tablet) {
+    right: 68px;
+  }
+
+  // half circle background
+  background-color: $vp-ltnavy;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  // border-radius: 50%;
+  @include media(tablet) {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 110px;
+    border-bottom-right-radius: 110px;
+  }
+}
+
+// IE 10 and 11 fix
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  button.header-modal-button {
+    top: -40px;
+  }
+}
+
+.vp-contact-cta-text {
+  display: none;
+  @include media(tablet) {
+    display: block;
+  }
+}
+
+.vp-contact-cta-text_mobile {
+  font-size: rem(16, 16);
+  display: block;
+  @include media(tablet) {
+    display: none;
+  }
+}
+
+.modal-full {
+  min-width: 100%;
+  margin: 0;
+}
+
+.modal-full .modal-content {
+  min-height: 100vh;
+}
+
+.header-modal-wrap {
+  background-color: $vp-white;
+}
+
+.header-modal {
+  background-color: $vp-offwhite;
+
+  .header-modal-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: $spacer;
+    padding-bottom: $spacer;
+
+    .close {
+      text-shadow: none;
+      color: $vp-ltnavy;
+      opacity: 1;
+      font-size: 30px;
+      font-size: rem(30, 16);
+      float: none;
+
+      &:focus {
+        background-color: transparent;
+      }
+      &:focus,
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .site-logo-white {
+    max-width: 200px;
+    display: block;
+  }
+
+  .modal-content {
+    background-color: $vp-offwhite;
+    color: $vp-dkgray;
+    border: none;
+  }
+
+  .modal-title {
+    color: $vp-brown-grey;
+    margin-bottom: rem(16, 16);
+  }
+
+  p {
+    color: $vp-ltnavy;
+    font-family: $font-family-serif;
+    margin-bottom: 1.5rem;
+    font-size: 26px;
+    font-size: rem(26, 16);
+  }
+
+  .modal-body {
+    padding-top: 85px;
+    padding-bottom: 0;
+  }
+}
+
+// Contact Us Form for header modal and contact us page
+.header-modal form,
+.page-contact-us .page-content form.wpcf7-form {
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: bold;
+
+  label {
+    display: none;
+  }
+
+  input[type='email'],
+  input[type='text'],
+  select,
+  input[id^='interest'],
+  option {
+    border: none;
+    border-bottom: solid 1px $vp-ltnavy;
+    background-color: $vp-offwhite;
+    color: $vp-ltnavy;
+    font-style: italic;
+    opacity: 1;
+    margin: 0 $spacer;
+    font-size: 16px;
+    font-size: rem(16, 16);
+    font-weight: bold;
+    padding: $spacer * 0.1 0;
+
+    &::placeholder {
+      color: $vp-ltnavy;
+      font-style: italic;
+      opacity: 1;
+      font-size: 16px;
+      font-size: rem(16, 16);
+      font-weight: bold;
+    }
+  }
+
+  input[type='email'],
+  input[type='text'],
+  option {
+    width: calc(100% - 40px);
+    @include media(tablet) {
+      width: 300px;
+      font-size: 16px;
+      font-size: 1rem;
+    }
+  }
+
+  input[id^='company'] {
+    width: calc(100% - 40px);
+    @include media(tablet) {
+      width: calc(100% - 300px);
+    }
+  }
+
+  select,
+  input[id^='interest'],
+  input[id^='comments'] {
+    width: calc(100% - 40px);
+    @include media(tablet) {
+      width: calc(100% - 400px);
+    }
+  }
+
+  input[id^='phone'] {
+    width: calc(100% - 40px);
+    @include media(tablet) {
+      width: calc(100% - 300px);
+    }
+    @include media(desktop) {
+      width: calc(100% - 650px);
+    }
+  }
+
+  #interest {
+    display: inline-block;
+    vertical-align: middle;
+    background: url(../../../assets/src/img/sort-solid-blue.svg) no-repeat right
+      0.75rem center/12px 20px;
+    background-position: center right;
+    background-repeat: no-repeat;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+  }
+
+  #submit {
+    background-color: $vp-dkblue;
+    border: 1px solid $vp-dkblue;
+    color: $vp-white;
+    font-size: 1rem;
+    &:focus,
+    &:hover {
+      background-color: $vp-ltnavy;
+      border: 1px solid $vp-ltnavy;
+    }
+  }
+} // end .header-modal form
+
+// BS4 Overrides
+.modal-backdrop {
+  background-color: transparent;
+}
+
+.modal-open .modal {
+  z-index: 999999;
+}
+.modal-backdrop.show {
+  z-index: 0;
+}
+
+// Error styles
+.header-modal form .wpcf7-not-valid-tip,
+.page-contact-us .page-content form.wpcf7-form span.wpcf7-not-valid-tip {
+  font-size: 16px;
+  font-size: rem(16, 16);
+  color: $vp-red;
+  font-weight: bold;
+  display: inline;
+}
+
+.header-modal
+  form
+  .wpcf7-response-output.wpcf7-display-none.wpcf7-validation-errors,
+.page-contact-us
+  .page-content
+  form.wpcf7-form
+  .wpcf7-response-output.wpcf7-display-none.wpcf7-validation-errors {
+  color: $vp-red;
+  font-weight: bold;
+  font-family: $font-family-serif;
+}

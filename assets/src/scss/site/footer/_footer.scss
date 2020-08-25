@@ -1,0 +1,255 @@
+footer.site-footer {
+  // padding: 2 * $spacer 0;
+  padding: 2rem 1rem;
+  @include media(tablet) {
+    padding: 2rem 0 0 0;
+  }
+
+  background-color: $vp-new-grey;
+
+  .footer-bottom {
+    // @include dotted-border();
+    padding-top: rem(24, 16);
+    padding-bottom: 0;
+    margin-top: rem(15, 16);
+    margin-bottom: rem(15, 16);
+    font-size: 0.9rem;
+    border-top: 1px solid $vp-black;
+
+    .vp-text-align {
+      text-align: left;
+      @include media(tablet) {
+        text-align: right;
+      }
+    }
+  }
+
+  // hr {
+  //   @include dotted-border();
+  //   height: 1px;
+  //   border: none;
+  //   margin-left: 0;
+  //   margin-right: 0;
+  //   margin-top: 35px;
+  //   margin-bottom: 35px;
+  // }
+
+  address {
+    color: $vp-white;
+    margin-bottom: 2rem;
+    @include media(desktop) {
+      margin-bottom: 0;
+    }
+  }
+
+  p {
+    color: $vp-white;
+
+    margin-bottom: 2rem;
+    @include media(desktop) {
+      margin-bottom: 0;
+    }
+  }
+
+  .contact-info-link {
+    color: $vp-white;
+    text-decoration: underline;
+    display: block;
+    margin-bottom: $spacer;
+    word-break: break-word;
+
+    &:focus {
+      @include focusOutline($vp-white);
+    }
+
+    &:focus,
+    &:hover {
+      color: $vp-grybord;
+    }
+  }
+
+  h2 {
+    color: $vp-white;
+    font-size: 30px;
+    font-size: rem(30, 16);
+  }
+
+  h3,
+  .widget-title {
+    // @include font-size(1.1);
+    font-size: 16px;
+    font-size: rem(16, 16);
+    font-family: $font-family-bold-sans-serif;
+    text-transform: uppercase;
+    color: $vp-white;
+  }
+  // Headquarters heading
+  #text-6 .widget-title {
+    margin-top: 2.5rem;
+    @include media(tablet) {
+      margin-top: 0;
+    }
+  }
+
+  .site-logo img {
+    max-width: 140px;
+  }
+
+  .copyright {
+    // @include font-size(0.9);
+    font-size: rem(14, 16);
+    margin: 1rem 0 0 0;
+    @include media(tablet) {
+      margin: 0;
+    }
+  }
+  .footer-social {
+    margin-top: $spacer;
+
+    margin-bottom: 2rem;
+    @include media(desktop) {
+      margin-bottom: 0;
+    }
+
+    .circle-icon {
+      border: solid 1px $vp-white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      vertical-align: middle;
+    }
+
+    a {
+      color: $vp-white;
+      margin-right: 2 * $spacer;
+      width: 18px;
+
+      &:focus {
+        @include focusOutline($vp-white);
+      }
+
+      &:focus,
+      &:hover {
+        color: $vp-grybord;
+
+        .circle-icon {
+          border-color: $vp-grybord;
+        }
+      }
+    }
+  }
+
+  form {
+    margin: 0;
+    padding: 0;
+
+    // label {
+    //   display: none;
+    // }
+
+    input[type='email'] {
+      border: solid 1px $vp-black;
+      padding: 0.5rem 1rem;
+      width: 100%;
+      background-color: $vp-footer-offgrey;
+      color: $vp-white;
+
+      &:focus {
+        @include focusOutline($vp-white);
+      }
+    }
+    input[type='email']::placeholder {
+      color: $vp-white;
+    }
+
+    input[type='submit'],
+    button {
+      background-color: $vp-white;
+      border: 1px solid $vp-white;
+      color: $vp-drkorange;
+
+      width: 100%;
+      font-size: 14px;
+      font-size: rem(14, 16);
+
+      &:focus {
+        @include focusOutline($vp-white);
+        text-decoration: none;
+      }
+
+      &:focus,
+      &:hover {
+        background-color: $vp-drkorange;
+        color: $vp-white;
+        border: 1px solid $vp-drkorange;
+        text-decoration: none;
+      }
+    }
+    input[type='submit'] i,
+    form button i {
+      font-size: 16px;
+      font-size: rem(16, 16);
+      padding-left: 5px;
+    }
+  }
+
+  // Sign up form
+  // error msg
+  .wpcf7-response-output.wpcf7-display-none.wpcf7-validation-errors {
+    font-size: 20px;
+    font-size: rem(20, 16);
+  }
+
+  span.wpcf7-not-valid-tip {
+    font-size: 16px;
+    font-size: rem(16, 16);
+    font-weight: bold;
+    margin-top: rem(5, 16);
+    background-color: $vp-error-msg-bg;
+    border: dotted 2px $vp-error-msg-border;
+    padding: rem(8, 16);
+    // #ff4f4f
+  }
+}
+
+// home footer only
+.home {
+  footer.site-footer {
+    // padding: 2 * $spacer 0;
+    // padding: 4rem 0 3rem 0;
+    // padding: 2rem 1rem;
+    // @include media(desktop) {
+    //   padding: 2rem 0;
+    // }
+    .fp-tableCell {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      @include media(tablet) {
+        flex-direction: row;
+      }
+    }
+  }
+}
+
+#footer a:focus {
+  @include focusOutline($vp-white);
+}
+
+// Hide footer one or more fields msg, screen reader only visible
+#footer {
+  .wpcf7-response-output.wpcf7-display-none.wpcf7-validation-errors {
+    @include sr-only;
+  }
+  // white ajax loader
+  div.wpcf7 .ajax-loader {
+    background-image: url(../../../assets/src/img/ajax-loader-white.gif);
+    width: 24px;
+    height: 24px;
+    margin: 16px 0 0 0;
+    background-repeat: no-repeat;
+  }
+}

@@ -1,0 +1,51 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+	<div class="content-wrapper">
+    <div class="container">
+		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+			<section class="article-content">
+
+        {# {% import 'partials/breadcrumbs.twig' as brcrumbs %}
+        {{ brcrumbs.breadcrumbs( post ) }} #}
+        <p class="page-parent-link"><a href="/team">Our Team</a></p>
+
+        <h1 class="article-h1">{{ post.title }}</h1>
+        <p class="category">{{ post.meta('team_work_title') }}</p>
+
+        <div class="row">
+          <div class="col-md-5">
+            <img src="{{ post.thumbnail.src }}" alt="Photo of {{ post.title }}">
+          </div>
+          <div class="col-md-7">
+
+            <h2 class="sr-only" id="label-bio">Bio</h2>
+            <div class="reveal-box">
+              <div class="expand-content" id="expand_bio" aria-expanded="false" aria-labelledby="label-bio" tabindex="-1" role="region">
+                {{post.content}}
+              </div>
+              <button class="read-bio" aria-label="Expand full bio" aria-controls="expand_bio">Read full bio <i class="fas fa-plus" aria-hidden="true"></i></button>
+            </div>
+
+            <div class="profile-favs d-flex justify-content-between pt-4">
+              <div class="w-50 pr-4">
+                {{ post.meta('team_favorites_1') }}
+              </div>
+              <div class="w-50 pl-4">
+                {{ post.meta('team_favorites_2') }}
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </article>
+    </div>
+
+	</div> <!-- /content-wrapper -->
+
+{% endblock %}

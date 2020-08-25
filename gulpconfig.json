@@ -1,0 +1,20 @@
+{
+  "browserSyncOptions": {
+    "proxy": "https://visionpointmarketing.com.ddev.site/",
+    "notify": false
+  },
+  "browserSyncWatchFiles": ["./css/*.min.css", "./js/*.min.js", "./**/*.php"],
+  "paths": {
+    "js": "./assets/build/js",
+    "css": "./assets/build/css",
+    "img": "./img",
+    "imgsrc": "./src/img",
+    "sass": "./assets/src/scss",
+    "node": "./node_modules/",
+    "bower": "./bower_components/",
+    "dev": "./src",
+    "dist": "./dist",
+    "distprod": "./dist-product",
+    "vendor": ""
+  }
+}

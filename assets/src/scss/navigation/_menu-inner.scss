@@ -1,0 +1,101 @@
+/** === Inner page menu === */
+
+.inner-nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  @include media(tablet) {
+    flex-direction: row;
+  }
+
+  li {
+    list-style: none;
+    text-align: center;
+    border-bottom: solid 1px $vp-ltnavy;
+    flex: 1 1 100%;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include media(tablet) {
+      border-right: solid 1px $vp-ltnavy;
+      border-bottom: none;
+    }
+
+    @include media(tablet) {
+      &:first-of-type {
+        border-left: solid 1px $vp-ltnavy;
+      }
+    }
+
+    &:hover,
+    &:active {
+      background-color: $vp-ltnavy;
+    }
+  }
+
+  .nav-child-link {
+    color: $white;
+    padding: $spacer;
+    display: block;
+    text-transform: uppercase;
+    // font-weight: bold;
+    font-family: $font-family-bold-sans-serif;
+    text-align: center;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+/** === Anchor menu === */
+
+.anchor-nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  @include media(tablet) {
+    flex-direction: row;
+  }
+
+  li {
+    list-style: none;
+    text-align: center;
+    flex: 1 1 100%;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-child-link {
+    color: $vp-dkorange;
+    padding: $spacer;
+    display: block;
+    text-transform: uppercase;
+    font-family: $font-family-bold-sans-serif;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: stretch;
+
+    &:focus,
+    &:hover {
+      color: $vp-dkblue;
+      background-color: $vp-more-grey;
+      text-decoration: none;
+    }
+  }
+}

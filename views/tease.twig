@@ -1,0 +1,19 @@
+{# 
+TO DO: make a separate teaser.twig for the EduInsights page so that the EduInsights teaser.twig does not have the GSAP classes on it that are being used for the home page
+#}
+
+<div class="teaser vpa-on-scroll-to vpa-fade vpa-chain" id="tease-{{post.ID}}" style="background-image: url(' {{ post.thumbnail.src }} ')">
+
+    <div class="overlay">
+      <div class="card-content">
+        <p class="category">
+            {# {% for term in post.terms('category') %}
+              {{ term.name }}
+            {% endfor %} #}
+            {{ post.terms('category')|join(', ') }}
+        </p>
+        <h3 class="h3"><a href="{{post.link}}">{{post.title}}</a></h3>
+        <p>{{post.preview.length(18).read_more('Read More').force}}</p>
+      </div>
+    </div>
+</div>

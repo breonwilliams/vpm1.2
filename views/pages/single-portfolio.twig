@@ -1,0 +1,54 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+	<div class="content-wrapper">
+    <div class="container">
+      <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+
+          <p class="page-parent-link"><a href="/portfolio">Portfolio</a></p>
+
+          <h1 class="article-h1">{{post.title}}</h1>
+          <p class="category">
+            {{ post.terms('capability')|join(' &#183; ') }}
+          </p>
+
+          <section class="article-content">
+            {{post.content}}
+          </section>
+
+      </article>
+    </div>
+
+    {# Next Project section #}
+    <div class="portfolio_next-project">
+      <div class="container">
+        <h3>Next Project</h3>
+
+        {% if post.prev %}
+          {# {% import '../partials/portfolio-item-next.twig' with post.next %} #}
+          <p class="portfolio_next-project_title"><a href="{{ post.prev.link }}">{{ post.prev.title }}</a></p>
+          <p class="category">
+            {{ post.prev.terms('capability')|join(', ') }}
+          </p>
+
+          <p class="portfolio_next-project_category">
+            <a href="{{ post.prev.link }}">{{ post.prev.capability }}</a>
+          </p>
+
+        {% else %}
+
+          <p class="portfolio_next-project_title">
+            <a href="{{ first_portfolio_item.link }}">{{ first_portfolio_item.title }}</a>
+          </p>
+          <p class="category">
+            {{ first_portfolio_item.terms('capability')|join(', ') }}
+          </p>
+
+        {% endif %}
+      </div>
+    </div>
+
+	</div> <!-- /content-wrapper -->
+
+{% endblock %}

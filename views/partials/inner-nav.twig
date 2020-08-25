@@ -1,0 +1,33 @@
+<!-- INNER NAVIGATION MENU
+---- show second level links for current page if those exist
+-->
+
+{% block inner_nav %}
+
+  <div class="container">
+
+    <ul class="inner-nav">
+      {% for item in menu.items %}
+
+        {% if item.current_item_ancestor %}
+
+          {# add About Us link as a first item for the About Us menu for all children pages #}
+          {% if item.slug == 'about-us' %}
+            <li class="nav-child-item">
+              <a class="nav-child-link" href="{{ item.link }}">{{ item.title }}</a>
+            </li>
+          {% endif %}
+
+          {# Display all other items in the submenu #}
+          {% for child in item.children %}
+            <li class="nav-child-item">
+              <a class="nav-child-link" href="{{ child.link }}">{{ child.title }}</a>
+            </li>
+          {% endfor %}
+        {% endif %}
+
+      {% endfor %}
+    </ul>
+
+  </div>
+{% endblock inner_nav %}

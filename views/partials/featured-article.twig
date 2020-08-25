@@ -1,0 +1,18 @@
+{# Featured blog article #}
+
+{% for post in featured_post %}
+
+  <section class="featured-article dark-bg" style="background-image: url(' {{ post.thumbnail.src }} ')">
+    <div class="overlay"></div>
+      <div class="container-inner">
+        <p class="category">
+            {% for term in post.terms('category') %}
+              {{ term.name }}
+            {% endfor %}
+        </p>
+        <h2><a href="{{post.link}}">{{post.title}}</a></h2>
+        <p>{{post.preview.length(20).read_more('Read More')}}</p>
+      </div>
+  </section>
+
+{% endfor %}

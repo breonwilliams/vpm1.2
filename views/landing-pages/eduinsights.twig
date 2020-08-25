@@ -1,0 +1,75 @@
+{% extends "layouts/base.twig" %}
+
+{# {% block pagebreadcrumbs %}
+  {% import 'partials/breadcrumbs-page.twig' as bc %}
+  {{ bc.breadcrumbs( 'eduInsights','eduinsights' ) }}
+{% endblock %} #}
+
+{% block content %}
+  <div class="container">
+    {% if title %}<h1>{{title}}</h1>{% endif %}
+  </div>
+
+    <div class="container featured-article-container">
+      {% include 'partials/featured-article.twig' %}
+    </div>
+
+    <div class="container">
+      <section class="eduinsights-listing">
+
+        <hr />
+
+        <div class="d-md-flex w-100">
+
+          {# Filters #}
+          <form class="filters-form form-inline" id="filter" method="POST">
+            <legend class="sr-only sr-only-focusable">Please select the category</legend>
+
+            {# Get all terms (aka categories), create a checkbox for each #}
+            {% for term in terms %}
+              <div class="form-check mr-sm-4">
+                <input name="categoryfilter" class="form-check-input mr-sm-2 categoryfilter" type="checkbox" id="{{ term.name }}" value="{{ term.id }}"  aria-controls="selected_articles">
+                <label class="form-check-label" for="{{ term.name }}">{{ term.name }}</label>
+              </div>
+            {% endfor %}
+          </form>
+
+          {# Search form #}
+          <div class="search-group ml-auto" role="search">
+            <form class="search-form form-inline" id="search" method="POST">
+              <div class="d-flex justify-content-between w-100">
+
+                <div class="flex-grow-1">
+                  <input type="text" placeholder="Search" class="search-input" aria-label="Search" name="search-keywords" id="search-keywords">
+                </div>
+
+                <button type="submit" aria-controls="selected_articles">
+                  <i class="fas fa-search"></i><span class="sr-only sr-only-focusable">Search</span>
+                </button>
+
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+        {# clear results button #}
+        <p class="mx-auto clearresults-wrapper"><a href="#" id="clearResults" class="vp-button clear-results" aria-controls="selected_articles">Clear Results</a></p>
+
+        <div role="region" class="ajax-ex" id="selected_articles" aria-live="polite">
+          <div class="teaser-grid">
+            {% for post in posts %}
+              {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+            {% endfor %}
+          </div>
+        </div>
+
+        {# load more button #}
+        <p class="text-center mx-auto mt-5"><a href="#" id="loadMore" class="load-more vp-button" aria-controls="selected_articles">Load More</a></p>
+
+      </section>
+    </div>
+  </div>
+
+{% endblock %}
+

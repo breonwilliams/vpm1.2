@@ -1,0 +1,316 @@
+// Mixins
+// @note: Custom, use native Bootstrap 4 mixins when possible
+
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+  // mobile
+  font-size: ($sizeValue * 16) * 1px / 2;
+  font-size: $sizeValue * 1rem / 2;
+
+  // tablet and larger
+  @include media(tablet) {
+    font-size: ($sizeValue * 16) * 1px / 1.2;
+    font-size: $sizeValue * 1rem / 1.2;
+  }
+
+  // desktop and larger
+  @include media(desktop) {
+    font-size: ($sizeValue * 16) * 1px;
+    font-size: $sizeValue * 1rem;
+  }
+}
+
+// Center block
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+  content: '';
+  display: table;
+  table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+  clear: both;
+}
+
+// Column width with margin
+@mixin column-width($numberColumns: 3) {
+  width: map-get($columns, $numberColumns) -
+    (($columns__margin * ($numberColumns - 1)) / $numberColumns);
+}
+
+@mixin dotted-border {
+  background-image: url(../../../assets/src/img/dot.svg);
+  background-repeat: repeat-x;
+}
+
+@mixin linear-gradient-overlay($top, $bottom) {
+  background: $top; /* Old browsers */
+  background: -moz-linear-gradient(top, $top 0%, $bottom 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, $top),
+    color-stop(100%, $bottom)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    $top 0%,
+    $bottom 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, $top 0%, $bottom 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, $top 0%, $bottom 100%); /* IE10+ */
+  background: linear-gradient(to bottom, $top 0%, $bottom 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+  mix-blend-mode: multiply;
+  display: block;
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@mixin filter-gradient-bg($overlay_opacity: '', $overlay_color: '') {
+  background: -webkit-linear-gradient(
+    left,
+    rgba($overlay_color, $overlay_opacity),
+    rgba($overlay_color, $overlay_opacity)
+  );
+  background: -moz-linear-gradient(
+    left,
+    rgba($overlay_color, $overlay_opacity),
+    rgba($overlay_color, $overlay_opacity)
+  );
+  background: -o-linear-gradient(
+    left,
+    rgba($overlay_color, $overlay_opacity),
+    rgba($overlay_color, $overlay_opacity)
+  );
+  background: -ms-linear-gradient(
+    left,
+    rgba($overlay_color, $overlay_opacity),
+    rgba($overlay_color, $overlay_opacity)
+  );
+}
+
+@mixin vp-gradient(
+  $top_opacity: '',
+  $top_position: '',
+  $middle_opacity: '',
+  $middle_position: '',
+  $bottom_opacity: '',
+  $bottom_position: ''
+) {
+  background: -moz-linear-gradient(
+    top,
+    rgba(0, 0, 0, $top_opacity) $top_position,
+    rgba(0, 0, 0, $middle_opacity) $middle_position,
+    rgba(0, 0, 0, $bottom_opacity) $bottom_position
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    top,
+    rgba(0, 0, 0, $top_opacity) $top_position,
+    rgba(0, 0, 0, $middle_opacity) $middle_position,
+    rgba(0, 0, 0, $bottom_opacity) $bottom_position
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, $top_opacity) $top_position,
+    rgba(0, 0, 0, $middle_opacity) $middle_position,
+    rgba(0, 0, 0, $bottom_opacity) $bottom_position
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#63000000', endColorstr='#ed000000',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin filter-duotone {
+  &:before {
+    background: $color__link;
+    mix-blend-mode: screen;
+    opacity: 0.1;
+    z-index: 2;
+  }
+
+  &:after {
+    background: $color__link;
+    mix-blend-mode: multiply;
+    opacity: 0.8;
+    z-index: 3;
+
+    /* Browsers supporting mix-blend-mode don't need opacity < 1 */
+    @supports (mix-blend-mode: multiply) {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin filter-grayscale {
+  position: relative;
+  filter: grayscale(100%);
+  z-index: 1;
+
+  &:after {
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+  }
+}
+
+@mixin partial-bottom-border($color) {
+  &:after {
+    background: $color;
+    content: '\020';
+    display: block;
+    height: 1px;
+    margin: 0.7 * $spacer auto;
+    width: 6em;
+  }
+}
+
+@mixin circle($color, $width) {
+  width: $width * 1px;
+  height: $width * 1px;
+  background: $color;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* If we add the border using a regular CSS border, it won't look good on non-retina devices,
+ * since its edges can look jagged due to lack of antialiasing. In this case, we are several
+ * layers of box-shadow to add the border visually, which will render the border smoother. */
+
+@mixin box-shadow($size) {
+  box-shadow: 0 0 0 $size $color__text-light inset,
+    // Original border.
+      0 0 0 ($size + 1px) $color__text-light inset,
+    // Antialiasing, inner edge.
+      0 0 1px 0 rgba($color__text-light, 0.7); // Antialiasing, outer edge.
+}
+
+/* Calculates maximum width for post content */
+@mixin postContentMaxWidth() {
+  @include media(tablet) {
+    max-width: map-get($grid-breakpoints, md);
+  }
+
+  @include media(desktop) {
+    max-width: map-get($grid-breakpoints, lg);
+  }
+}
+
+/* Nested sub-menu padding: 10 levels deep */
+@mixin nestedSubMenuPadding() {
+  ul {
+    counter-reset: submenu;
+  }
+
+  ul > li > a::before {
+    font-family: $font__body;
+    font-weight: normal;
+    content: '\2013\00a0'counters(submenu, '\2013\00a0', none);
+    counter-increment: submenu;
+  }
+}
+
+@mixin media($res) {
+  @if mobile == $res {
+    @media only screen and (min-width: map-get($grid-breakpoints, sm)) {
+      @content;
+    }
+  }
+
+  @if tablet == $res {
+    @media only screen and (min-width: map-get($grid-breakpoints, md)) {
+      @content;
+    }
+  }
+
+  @if desktop == $res {
+    @media only screen and (min-width: map-get($grid-breakpoints, xl)) {
+      @content;
+    }
+  }
+
+  // @if wide == $res {
+  // 	@media only screen and (min-width: $wide_width) {
+  // 		@content;
+  // 	}
+  // }
+}
+
+@mixin link-transition($attr: color) {
+  transition: $attr $link_transition ease-in-out;
+}
+
+@mixin button-transition() {
+  transition: background $button_transition ease-in-out;
+}
+
+@mixin button-all-transition() {
+  transition: all $button_transition ease-in-out;
+}
+
+@mixin background-transition() {
+  transition: background $background_transition ease-in-out;
+}
+
+@mixin selection {
+  ::-moz-selection {
+    @content;
+  }
+  ::selection {
+    @content;
+  }
+}
+
+// Default CSS needed to use Font Awesome 5 icons as pseudo elements
+// This mixin should be included in ::before and ::after rules for icon classes
+// @resource: https://fontawesome.com/how-to-use/on-the-web/advanced/css-pseudo-elements
+@mixin fa5DefaultCSS() {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin fa5SetIcon($iconCode) {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900; // font weight default unless using pro level icons
+  content: $iconCode;
+}
+
+// A11y Focus Indicator
+@mixin focusOutline($outlineColor) {
+  outline-style: dotted;
+  outline-width: 2px;
+  outline-color: $outlineColor;
+  box-shadow: none;
+}
+
+// Custom mixin to change flex-direciton
+@mixin flexDir($flexDir) {
+  flex-direction: $flexDir;
+}
+
+// classes to use with mixin
+.vp-flex-dir--row {
+  @include flexDir(row);
+}
+
+.vp-flex-dir--col {
+  @include flexDir(column);
+}

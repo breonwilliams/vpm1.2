@@ -1,0 +1,67 @@
+/** === VPM GB block styles === */
+
+// Stats block
+.wp-block-vpm-stats-block {
+
+  .vpm_stat {
+    background-image: url(../../../assets/src/img/stat-bg-1.svg);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 50%;
+    border: none;
+    padding-bottom: 50px;
+  }
+
+
+  .vpm_stat_content {
+    background-color: $vp-ltblue;
+    border-radius: 50%;
+    padding: $spacer*2;
+    text-align: center;
+    color: $white;
+    width: 250px;
+    height: 250px;
+  }
+
+  .vpm_stats_box_number {
+
+    margin-bottom: 0;
+  }
+
+  .vpm_stats_number {
+    font-size: 5rem;
+    font-family: $font-family-bold-sans-serif;
+    letter-spacing: -4px;
+    line-height: 1;
+  }
+
+  .vpm_stats_title {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+  }
+
+  .vpm_stats_2 {
+    margin-top: $spacer;
+
+    &.vpm_stat {
+      background-image: url(../../../assets/src/img/stat-bg-2.svg);
+      background-position: left bottom;
+      background-size: 80%;
+    }
+
+    .vpm_stat_content {
+      width: 300px;
+      height: 300px;
+      background-color: $vp-dkblue;
+    }
+
+    .vpm_stats_number {
+      font-size: 6rem;
+    }
+  }
+
+    .vpm_stats_3 {
+      margin-top: $spacer*2;
+    }
+}

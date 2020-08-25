@@ -1,0 +1,341 @@
+/** === Standard GB block styles === */
+
+.entry .entry-content > *,
+.entry .entry-summary > * {
+  margin: 32px 0;
+  max-width: 100%;
+  // background-color: yellow;
+
+  @include postContentMaxWidth();
+
+  @include media(tablet) {
+    margin: 32px 0;
+  }
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  &.alignwide {
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+
+    @include media(tablet) {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  &.alignfull {
+    position: relative;
+    margin: 32px calc(50% - 50vw);
+    max-width: 100vw;
+    width: 100vw;
+    clear: both;
+
+    // @include media(tablet) {
+    //   margin-top: calc(2 * $spacer);
+    //   margin-bottom: calc(2 * $spacer);
+    // 	left: calc( -12.5% - 75px );
+    // 	width: calc( 125% + 150px );
+    // 	max-width: calc( 125% + 150px );
+    // }
+  }
+
+  &.alignleft {
+    /*rtl:ignore*/
+    float: left;
+    max-width: calc(5 * (100vw / 12));
+    margin-top: 0;
+    margin-left: 0;
+    /*rtl:ignore*/
+    margin-right: $spacer;
+
+    @include media(tablet) {
+      max-width: calc(4 * (100vw / 12));
+      /*rtl:ignore*/
+      margin-right: calc(2 * $spacer);
+    }
+  }
+
+  &.alignright {
+    /*rtl:ignore*/
+    float: right;
+    max-width: calc(5 * (100vw / 12));
+    margin-top: 0;
+    margin-right: 0;
+    /*rtl:ignore*/
+    margin-left: $spacer;
+
+    @include media(tablet) {
+      max-width: calc(4 * (100vw / 12));
+      margin-right: 0;
+      /*rtl:ignore*/
+      margin-left: calc(2 * #{$spacer});
+    }
+  }
+  &.aligncenter {
+    margin-left: auto;
+    margin-right: auto;
+
+    @include postContentMaxWidth();
+
+    @include media(tablet) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}
+
+/*
+ * Unset nested content selector styles
+ * - Prevents layout styles from cascading too deeply
+ * - helps with plugin compatibility
+ */
+.entry .article-content,
+.entry .entry-summary {
+  .entry-content,
+  .entry-summary,
+  .entry {
+    margin: inherit;
+    max-width: inherit;
+    padding: inherit;
+
+    @include media(tablet) {
+      margin: inherit;
+      max-width: inherit;
+      padding: inherit;
+    }
+  }
+}
+
+@import 'blockquote';
+@import 'pullquote';
+@import 'vpm_block';
+@import 'stackable';
+
+.article-content,
+.page-content {
+  // Genetal utility classes
+  .hide-on-mobile {
+    display: none;
+
+    @include media(desktop) {
+      display: block;
+    }
+  }
+
+  //! Paragraphs
+  p {
+    &.has-background {
+      padding: 20px 30px;
+    }
+    &.font-serif {
+      font-family: $font-family-med-italic-serif;
+      font-size: 120%;
+    }
+  }
+
+  // Video
+  .wp-block-video {
+    video {
+      width: 100%;
+    }
+  }
+
+  // Button
+  .wp-block-button {
+    .wp-block-button__link {
+      @include button-transition;
+      border: none;
+      background-color: $vp-orange;
+      color: $white;
+      font-size: 1rem;
+      box-sizing: border-box;
+      font-family: $font-family-bold-sans-serif;
+      font-weight: bold;
+      text-decoration: none;
+      // padding: ($spacer * 0.8) $spacer*1.4;
+      outline: none;
+      white-space: nowrap;
+
+      &::after {
+        content: '\f30b';
+        display: inline-block;
+        margin: 0 0 0 $spacer * 0.5;
+        font-family: $font-family-fa;
+        font-size: 20px;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        line-height: 1;
+        font-weight: 900;
+        vertical-align: bottom;
+      }
+
+      &:focus {
+        background-color: $vp-drkorange;
+        // Focus Indicator
+        @include focusOutline($vp-ltnavy);
+      }
+      &:hover {
+        background-color: $vp-drkorange;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+
+    &.fullwidth .wp-block-button__link {
+      width: 100%;
+      display: block;
+      text-align: left;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        right: 15px;
+      }
+    }
+  }
+
+  .wp-block-archives,
+  .wp-block-categories {
+    &.aligncenter {
+      text-align: center;
+    }
+  }
+
+  //! Latest categories
+  .wp-block-categories {
+    ul {
+      padding-top: (0.75 * $spacer);
+    }
+
+    li ul {
+      list-style: none;
+      padding-left: 0;
+    }
+  }
+
+  //! Image
+  .wp-block-image {
+    max-width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    img {
+      display: block;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .aligncenter {
+      @include postContentMaxWidth();
+
+      @include media(tablet) {
+        img {
+          margin: 0 auto;
+        }
+      }
+    }
+
+    &.alignfull img {
+      margin: 32px calc(50% - 50vw);
+      max-width: 100vw;
+      width: 100vw;
+    }
+  }
+
+  .wp-block-columns {
+    margin-top: $spacer * 2;
+
+    &.alignfull {
+      margin: 32px calc(50% - 50vw);
+      max-width: 100vw;
+      width: 100vw;
+    }
+
+    .wp-block-column {
+      margin-bottom: 0;
+      flex-grow: 1;
+      flex-basis: 100%;
+      margin-left: 0;
+
+      .wp-block-image {
+        .alignright,
+        .alignleft {
+          float: none;
+          margin: 0 auto;
+        }
+      }
+
+      @include media(desktop) {
+        flex-grow: 0;
+        flex-basis: calc(50% - 16px);
+        &:not(:first-child) {
+          margin-left: $spacer;
+        }
+      }
+    }
+  }
+  //! Cover Image
+  .wp-block-cover-image,
+  .wp-block-cover {
+    position: relative;
+    min-height: 430px;
+    // padding:$;
+
+    @include media(tablet) {
+      // padding: space      10%;
+    }
+
+    .wp-block-cover-image-text,
+    .wp-block-cover-text,
+    h2 {
+      // @include font-family( $font__heading );
+      font-size: $font-size-lg;
+      font-weight: bold;
+      line-height: 1.25;
+      padding: 0;
+      color: #fff;
+
+      @include media(tablet) {
+        // font-size: $font-size-xl;
+        max-width: 100%;
+      }
+    }
+
+    &.alignleft,
+    &.alignright {
+      width: 100%;
+
+      @include media(tablet) {
+        padding: calc(2 * $spacer);
+      }
+    }
+
+    &.alignfull {
+      .wp-block-cover-image-text,
+      .wp-block-cover-text,
+      h2 {
+        @include postContentMaxWidth();
+      }
+
+      @include media(tablet) {
+        padding-left: calc(10% + 58px + (2 * $spacer));
+        padding-right: calc(10% + 58px + (2 * $spacer));
+
+        .wp-block-cover-image-text,
+        .wp-block-cover-text,
+        h2 {
+          padding: 0;
+        }
+      }
+    }
+  }
+}

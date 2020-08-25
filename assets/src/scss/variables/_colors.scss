@@ -1,0 +1,155 @@
+$blue: #3a4a67;
+$teal: #2a96ac;
+$orange: #ec7a2e;
+$white: #ffffff;
+// $indigo:  #6610f2 !default;
+// $purple:  #6f42c1 !default;
+// $pink:    #e83e8c !default;
+// $red:     #dc3545 !default;
+
+// $yellow:  #ffc107 !default;
+// $green:   #28a745 !default;
+
+// $cyan:    #17a2b8 !default;
+
+$primary: $blue !default;
+$secondary: $gray-600 !default;
+$success: $green !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$light: $gray-100 !default;
+$dark: $gray-800 !default;
+
+$theme-colors: map-merge(
+  (
+    'blue': $blue,
+    'tea': $teal,
+    'orange': $orange
+  ),
+  $theme-colors
+);
+
+// Links
+//
+// Style anchor elements.
+
+$link-color: theme-color('primary');
+$link-decoration: none;
+$link-hover-color: darken($link-color, 15%);
+$link-hover-decoration: underline;
+// Darken percentage for links with `.text-*` class (e.g. `.text-success`)
+// $emphasized-link-hover-darken-percentage: 15% !default;
+
+// Custom VisionPoint color vars:
+
+$vp-orange: #f26822;
+$vp-dkorange: #b84b14;
+$vp-dkblue: #1c2855;
+$vp-ltnavy: #187288;
+$vp-ltblue: #329bb4;
+$vp-ltgray: #f2f2f2;
+$vp-ltbluish: #fbfbfb;
+$vp-mdgray: #f5f5f5;
+$vp-dkgray: #363636;
+$vp-gray: #626262;
+$vp-header-grey: #3e3e3e;
+$vp-brown-grey: #797979;
+$vp-greyish-brown: #464646;
+$vp-offblk: #363636; // color from latest design, was #282828 but need to see if this color is accurate, design has color discrepancies
+$vp-footer-offgrey: #2f2f2f;
+$vp-white: #ffffff; // color from latest design
+$vp-black: #000000; // color from latest design
+$vp-offwhite: #f7f7f7; // color from latest design
+$vp-offwhite2: #f9f9f9;
+$vp-offwhite3: #efefef; // color from latest design
+$vp-ltergray: #f6f6f6; // color from latest design
+$vp-grybord: #bebebe; // color from latest design
+$vp-drkorange: #c75116; // color from latest design
+$vp-red: #ac0000; // color from latest design
+$vp-more-grey: #e6e6e6; // color from latest design, hover bg for capabilities
+$vp-new-grey: #282828; // new bg color for footer
+$vp-error-msg-bg: #141414; // used for bg color of error msg in footer for signup form
+$vp-error-msg-border: #2f2f2f; // used for border color of error msg in footer for signup form
+
+$body-bg: $white;
+$body-color: $vp-dkgray;
+
+$link-color: $vp-ltnavy;
+
+// Color classes
+.vp-dkblue,
+.has-vp-dkblue-color {
+  color: $vp-dkblue;
+}
+
+.vp-ltblue,
+.has-vp-ltblue-color {
+  color: $vp-ltblue;
+}
+
+.vp-orange,
+.has-vp-orange-color {
+  color: $vp-orange;
+}
+
+.vp-ltnavy,
+.has-vp-ltnavy-color {
+  color: $vp-ltnavy;
+}
+
+.vp-white,
+.has-vp-white-color {
+  color: $white;
+}
+
+.vp-mdgray,
+.has-vp-mdgray-color {
+  color: $vp-mdgray;
+}
+
+// GB background color classes
+.has-background {
+  &.has-vp-dkblue-background-color {
+    background-color: $vp-dkblue;
+  }
+  &.has-vp-ltblue-background-color {
+    background-color: $vp-ltblue;
+  }
+  &.has-vp-orange-background-color {
+    background-color: $vp-orange;
+  }
+  &.has-vp-ltnavy-background-color {
+    background-color: $vp-ltnavy;
+  }
+  &.has-vp-white-background-color {
+    background-color: $white;
+  }
+  &.has-vp-mdgray-background-color {
+    background-color: $vp-mdgray;
+  }
+}
+
+.text-has_bgGrad {
+  background: rgb(131, 58, 180);
+  background: -moz-linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#833ab4",endColorstr="#fcb045",GradientType=1);
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,39 @@
+// Blockquote
+
+.wp-block-quote {
+
+  &,
+  &.is-style-default,
+  &.is-large,
+  &.is-style-large {
+    border-left: 4px solid $vp-orange;
+    padding-bottom: 0;
+    margin: $spacer*1.5 0;
+    padding-top: $spacer;
+
+    p {
+      font-family: $font-family-serif;
+      font-size: 1.4rem;
+      color: $vp-gray;
+      line-height: 1.3;
+      margin-top: -1.5 * $spacer;
+      margin-bottom: $spacer * 0.5;
+    }
+
+    cite {
+      font-family: $font-family-sans-serif;
+      font-style: normal;
+      font-size: 1rem;
+      color: $body-color;
+    }
+
+    @include media(desktop) {
+      margin: 2*$spacer;
+
+      p {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,144 @@
+//! Pullquote
+.wp-block-pullquote {
+  border-top: 2px solid $vp-orange;
+  border-bottom: none;
+  padding: 2*$spacer 4*$spacer;
+  margin-top: 2*$spacer;
+  position: relative;
+  font-family: $font-family-serif;
+  &:before {
+    font-family: $font-family-light-serif;
+    content: "\201C";
+    font-size: 80px;
+    font-weight: bold;
+    color: $vp-ltnavy;
+    background-color: $white;
+    position: absolute;
+    width: 3.5rem;
+    height: 2rem;
+    display: block;
+    top: -1.2rem;
+    left: 5rem;
+    line-height: 1;
+  }
+
+  blockquote {
+    border: none;
+    margin-top: calc(1.5 * $spacer);
+    margin-bottom: calc(2.5 * $spacer);
+    margin-right: 0;
+    padding-left: 0;
+  }
+
+  p {
+    font-family: $font-family-serif;
+    @include font-size(2.2);
+    font-style: italic;
+    line-height: 1.3;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+
+    em {
+      font-style: normal;
+    }
+
+  }
+
+  cite {
+    display: inline-block;
+    line-height: 1.6;
+    text-transform: none;
+    font-family: $font-family-sans-serif;
+    font-style: normal;
+
+    em {
+      font-style: normal;
+    }
+
+    /*
+      * This requires a rem-based font size calculation instead of our normal em-based one,
+      * because the cite tag sometimes gets wrapped in a p tag. This is equivalent to $font-size_xs.
+      */
+    // font-size: calc(1rem / (1.25 * #{$font__size-ratio}));
+  }
+
+  &.alignleft,
+  &.alignright {
+    width: 100%;
+    padding: 0;
+
+    blockquote {
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      max-width: 100%;
+
+      p:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &.is-style-solid-color {
+    // background-color: $color__link;
+    padding-left: 0;
+    padding-right: 0;
+
+    @include media(tablet) {
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+
+    p {
+      // font-size:-;
+      line-height: 1.3;
+      margin-bottom: 0.5em;
+      margin-top: 0.5em;
+
+      @include media(tablet) {
+        // font-size:-;
+      }
+    }
+
+    cite {
+      color: inherit;
+    }
+
+    blockquote {
+      max-width: 100%;
+      // color: $color__background-body;
+      padding-left: 0;
+
+      &.has-text-color p,
+      &.has-text-color a,
+      &.has-primary-color,
+      &.has-secondary-color,
+      &.has-dark-gray-color,
+      &.has-light-gray-color,
+      &.has-white-color {
+        color: inherit;
+      }
+
+      @include media(tablet) {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
+    &.alignright,
+    &.alignleft {
+
+      @include media(tablet) {
+        padding: 2 * $spacer;
+      }
+    }
+
+    &.alignfull {
+
+      @include media(tablet) {
+        padding-left: calc(10% + 58px + (2 * $spacer));
+        padding-right: calc(10% + 58px + (2 * $spacer));
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+// Responsive widths.
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+$mobile_width: map-get($container-max-widths, sm);
+$tablet_width: map-get($container-max-widths, lg);
+$desktop_width: map-get($container-max-widths, xl);
+// $wide_width: 1379px;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+);
+

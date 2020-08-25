@@ -1,0 +1,27 @@
+{% extends "layouts/base.twig" %}
+
+{% block sidebar_1 %}
+  <div class="col-md-3">
+    {{left_sidebar}}
+  </div>
+{% endblock %}
+
+{% block content %}
+	<div class="content-wrapper">
+    <article class="post-type-{{post.post_type}} entry" id="post-{{post.ID}}">
+			<section class="entry-content">
+				<h1 class="page-title">{{post.title}}</h1>
+
+				{# <div class="article-body"> #}
+					{{post.content}}
+				{# </div> #}
+			</section>
+		</article>
+	</div> <!-- /content-wrapper -->
+{% endblock %}
+
+{% block sidebar_2 %}
+  <div class="col-md-3">
+    {{dynamic_sidebar}}
+  </div>
+{% endblock %}

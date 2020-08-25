@@ -1,0 +1,37 @@
+/** === Footer menu === */
+
+.footer-navigation,
+.footer-nav-additional {
+  display: inline;
+
+  li {
+    margin: 0;
+
+    &.list-inline-item:not(:last-child) {
+      margin: 0;
+
+      &::after {
+        content: '|';
+        display: inline-block;
+        margin: 0 rem(8, 16);
+        color: $vp-white;
+      }
+    }
+  }
+
+  .nav-link {
+    padding: 0 rem(8, 16) 0 0;
+    @include media(desktop) {
+      padding: 0 rem(8, 16) 0 rem(8, 16);
+    }
+    color: $vp-white;
+    display: inline-block;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      color: $vp-grybord;
+      text-decoration: underline;
+    }
+  }
+}

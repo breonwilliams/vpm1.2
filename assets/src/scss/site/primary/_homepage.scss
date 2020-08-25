@@ -1,0 +1,888 @@
+.home {
+  // set position to relative so GSAP animations work
+  .content {
+    position: relative;
+  }
+
+  .vp-is-hidden {
+    visibility: hidden;
+  }
+
+  h1.page-title {
+    display: none;
+  }
+  .entry .entry-content .wp-block-cover-image.alignfull,
+  .entry .entry-content .wp-block-cover.alignfull {
+    margin-top: 0;
+  }
+
+  .site-header {
+    position: fixed;
+    width: 100%;
+    background-color: $vp-white;
+    height: auto;
+    z-index: 999999;
+    top: 0;
+  }
+
+  // navbar for home page
+  .navbar {
+    align-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    text-transform: uppercase;
+    // @include font-size(7);
+    // 94px is from design but the actual text content is too long for 94px to work
+    // font-size: 94px;
+    // font-size: rem(94, 16);
+    font-size: 34px;
+    font-size: rem(34, 16);
+    @include media(tablet) {
+      font-size: 45px;
+      font-size: rem(45, 16);
+    }
+    @include media(desktop) {
+      font-size: 65px;
+      font-size: rem(65, 16);
+    }
+    text-align: center;
+    line-height: 0.73 * $line-height-base;
+    position: relative;
+    // padding-top: 10vw;
+    padding-top: 0;
+    span {
+      font-family: $font-family-bold-sans-serif;
+      display: block;
+    }
+    color: $vp-white;
+    // transition: color 2s ease;
+  }
+  h2 {
+    font-size: 30px;
+    font-size: rem(30, 16);
+    @include media(tablet) {
+      font-size: 28px;
+      font-size: rem(28, 16);
+    }
+    font-family: $font-family-bold-sans-serif;
+    color: #282828;
+    font-weight: 200;
+    text-transform: uppercase;
+    span {
+      font-family: $font-family-bold-sans-serif;
+      @include font-size(5.5);
+      font-weight: 700;
+    }
+  }
+
+  .home-start-bubble {
+    color: $white;
+    background-color: $vp-orange;
+    border-radius: 50%;
+    width: 135px;
+    height: 135px;
+    padding: 15px 10px;
+    display: block;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    @include media(desktop) {
+      justify-content: center;
+    }
+  }
+
+  .teaser-grid {
+    flex-direction: column;
+    @include media(tablet) {
+      flex-direction: row;
+    }
+  }
+
+  .teaser {
+    min-height: 30rem;
+    flex-direction: row;
+    position: relative;
+    @include media(tablet) {
+      min-height: 20rem;
+      flex-direction: row;
+    }
+    @include media(desktop) {
+      min-height: 30rem;
+    }
+  }
+
+  .fp-tableCell {
+    display: flex;
+    align-items: flex-start;
+    @include media(desktop) {
+      align-items: center;
+    }
+  }
+} // end .home
+
+.home-cta {
+  @include button-transition;
+  border: solid 1px $vp-orange;
+  border-radius: 30px;
+  background-color: $vp-orange;
+  color: $vp-white;
+  font-size: 1.1rem;
+  box-sizing: border-box;
+  font-family: $font-family-bold-sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  padding: ($spacer * 0.8) $spacer;
+  outline: none;
+  margin-top: $spacer;
+  display: inline-block;
+
+  &::after {
+    content: '\f30b';
+    display: inline-block;
+    margin: 0 0 0 $spacer * 0.5;
+    font-family: $font-family-fa;
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1.1;
+    font-weight: 900;
+    vertical-align: bottom;
+  }
+
+  &:focus {
+    color: $vp-white;
+    background-color: $vp-drkorange;
+    // Focus Indicator
+    @include focusOutline($vp-white);
+  }
+
+  &:hover {
+    color: $vp-white;
+    border: solid 1px $vp-drkorange;
+    background-color: $vp-drkorange;
+    cursor: pointer;
+  }
+
+  // &.home-cta_white {
+  //   color: $white;
+  //   border-color: $white;
+  // }
+}
+
+/****** Homepage screens ********/
+.screen-panel {
+  position: relative;
+  background-color: $vp-white;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding-top: 89px; // account for header menu
+}
+
+.inner {
+  margin: 0 auto;
+  position: relative;
+  height: 100%;
+  @extend .container;
+}
+
+.content {
+  // margin-top: 15vh;
+  // @include media(desktop) {
+  //   margin-top: 15vw;
+  // }
+
+  @include media(desktop) {
+    width: 25vw;
+  }
+}
+
+// Pagination
+// .pagination {
+//   position: fixed;
+//   top: 0;
+//   bottom: 0;
+//   right: 20px;
+//   height: 90px;
+//   margin: auto;
+//   font-size: 1em;
+//   font-weight: bold;
+//   z-index: 10;
+//   list-style: none;
+//   display: none;
+//   @include media(desktop) {
+//     display: block;
+//   }
+
+//   a {
+//     display: block;
+//     width: 150px;
+//     height: $spacer * 2;
+//     border-radius: 50%;
+//     color: $vp-ltblue;
+//     position: relative;
+//     padding: $spacer;
+//     font-size: 11px;
+//     font-size: rem(11, 16);
+//   }
+
+//   a.active:after {
+//     background-color: $vp-ltblue;
+//     border: 1px solid $vp-ltblue;
+//     width: 12px;
+//     height: 12px;
+//     right: 0;
+//   }
+
+//   a .hover-text {
+//     // position: absolute;
+//     // right: 20px;
+//     // top: 0;
+//     // opacity: 0;
+//     // background: $vp-ltblue;
+//     // color: $white;
+//     // display: inline-block;
+//     // padding: $spacer * 0.5 $spacer;
+//     // -webkit-transition: opacity 0.5s ease;
+//     // transition: opacity 0.5s ease;
+
+//     // circle shape
+//     position: absolute;
+//     right: 20px;
+//     top: -12px;
+//     opacity: 0;
+//     background: $vp-ltblue;
+//     color: #ffffff;
+//     display: inline-block;
+//     padding: 20px 9px;
+//     transition: opacity 0.5s ease;
+//     width: 55px;
+//     height: 55px;
+//     border-radius: 50%;
+
+//     // hide hover  text until we figure out what it should say and look like
+//     display: none;
+//   }
+
+//   a:hover .hover-text {
+//     opacity: 1;
+//   }
+
+//   a:after {
+//     width: 6px;
+//     height: 6px;
+//     display: block;
+//     background: $vp-ltblue;
+//     border-radius: 50%;
+//     content: '';
+//     position: absolute;
+//     margin: auto;
+//     top: 0;
+//     right: 4px;
+//     bottom: 0;
+//   }
+// }
+
+// First screen
+// fade bg image
+/*
+commented out but leaving until the hero section design is fully solidified
+*/
+// .vp-bg-panel {
+//   background-color: $vp-dkblue;
+//   background-image: url(../../../assets/src/img/homepage/hero_mobilebackground_new.jpg);
+//   @include media(tablet) {
+//     background-image: url(../../../assets/src/img/homepage/hero_tabletbackground.jpg);
+//   }
+//   @include media(desktop) {
+//     background-image: url(../../../assets/src/img/homepage/gradientbackground@2x.jpg);
+//   }
+//   background-position: center center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+
+//   width: 100%;
+//   height: 100vh;
+//   transition: opacity 2s ease;
+//   opacity: 0;
+//   position: absolute;
+//   z-index: 1;
+// }
+// .vp-fg-panel {
+//   background-color: $vp-offwhite3;
+//   position: absolute;
+//   height: 100vh;
+//   transition: opacity 2s ease;
+//   opacity: 1;
+//   z-index: -1;
+// }
+
+/*
+commented out but leaving until the hero section design is fully solidified
+*/
+// .vp-fg-panel_content {
+//   position: relative;
+//   height: 100vh;
+//   opacity: 1;
+//   z-index: 3;
+// }
+
+// .vp-swap-opacity {
+//   opacity: 1;
+// }
+
+.screen-panel.screen-1 {
+  background-color: $vp-dkblue;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(28, 40, 85, 0.6),
+      rgba(28, 40, 85, 0.6)
+    ),
+    url(../../../assets/src/img/homepage/lab-min.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  // transition: background-color 0s ease;
+  // opacity: 1;
+}
+
+// .screen-panel.screen-1.vp-fade-bg-img {
+//   background-color: $vp-dkblue;
+//   transition: background-color 60s ease;
+// }
+
+/*
+commented out but leaving until the hero section design is fully solidified
+*/
+// .screen-panel.screen-1.vp-set-opacity {
+//   opacity: 0;
+// }
+
+// .screen-panel.screen-1.vp-fade-bg-img {
+//   background-color: $vp-dkblue;
+//   transition: background-color 2s linear;
+//   // transition: background-color 60s ease;
+//   // background-image: url(../../../assets/src/img/homepage/gradientbackground@2x.png);
+//   // background-position: center center;
+//   // transition: background 60s ease;
+//   transition: opacity 5s ease;
+//   opacity: 1;
+// }
+
+/*
+commented out but leaving until the hero section design is fully solidified
+*/
+// .screen-1.vp-swap-circle-color {
+//   h1 {
+//     color: $vp-white;
+//   }
+//   // left top circle
+//   &::before {
+//     content: '';
+//     transition: background-color 2s ease;
+//     background-color: $vp-white;
+//   }
+
+//   // right bottom circle
+//   &::after {
+//     content: '';
+//     transition: background-color 2s ease;
+//     background-color: $vp-white;
+//   }
+// }
+
+/*
+commented out but leaving until the hero section design is fully solidified
+*/
+// .vp-js-subtitle {
+//   visibility: hidden;
+//   opacity: 0;
+//   color: $vp-white;
+//   transition: visibility 3s ease;
+//   transition: opacity 3s ease;
+// }
+
+.home h1 .vp-subtitle {
+  color: $vp-white;
+  font-family: $font-family-serif;
+  text-transform: lowercase;
+}
+
+// .vp-subtitle-hidden {
+//   visibility: hidden;
+//   opacity: 0;
+// }
+
+// .vp-subtitle-fade-in {
+//   visibility: visible;
+//   opacity: 1;
+// }
+
+// h1.vp-subtitle-white {
+//   visibility: hidden;
+//   opacity: 0;
+//   color: $vp-white;
+//   transition: visibility 3s ease;
+//   transition: opacity 3s ease;
+// }
+
+// Hero section
+.screen-1 {
+  overflow: hidden;
+  justify-content: center;
+
+  height: 100vh !important;
+
+  .fp-tableCell {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  // &::before {
+  //   content: '';
+  //   @include circle($vp-dkblue, 150);
+  //   position: absolute;
+  //   top: 86px;
+  //   left: unset;
+  //   right: 0px;
+  //   z-index: 5;
+  //   height: 90px;
+  //   width: 45px;
+  //   border-radius: 0;
+  //   border-bottom-left-radius: 90px;
+  //   border-top-left-radius: 90px;
+  //   @include media(tablet) {
+  //     @include circle($vp-dkblue, 220);
+  //     top: 94px;
+  //     left: -36px;
+  //     right: unset;
+  //     border-radius: 50%;
+  //   }
+  // }
+
+  // &::after {
+  //   content: '';
+  //   @include circle($vp-orange, 55);
+  //   position: absolute;
+  //   top: unset;
+  //   bottom: 15px;
+  //   right: 0;
+  //   left: 100px;
+  //   z-index: 5;
+  //   @include media(tablet) {
+  //     @include circle($vp-orange, 100);
+  //     top: unset;
+  //     bottom: 150px;
+  //     right: 300px;
+  //   }
+  // }
+
+  .header-content {
+    // position: absolute;
+    // left: 50px;
+    // top: 120px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // set opacity to 0 so that animation triggers visibility
+    // opacity: 0;
+    // top: 100vh;
+  }
+
+  // .gallery0 {
+  //   position: absolute;
+  //   left: 30%;
+  //   top: 80px;
+  //   width: 60%;
+  // }
+}
+
+// CU Boulder portfolio section
+.screen-2 {
+  // fallback color for AA a11y
+  background-color: $vp-offblk;
+  background-image: url(../../../assets/src/img/homepage/cuboulder_mobilebackground.jpg);
+  background-position: top center;
+  justify-content: flex-start;
+
+  @include media(tablet) {
+    background-image: url(../../../assets/src/img/homepage/cuboulder_tabletbackground.jpg);
+    background-position: center center;
+    justify-content: flex-start;
+  }
+  @include media(desktop) {
+    background-image: url(../../../assets/src/img/homepage/screen1.svg);
+    background-position: top center;
+
+    justify-content: center;
+  }
+
+  .content {
+    & > * {
+      color: $white;
+    }
+  }
+
+  // padding-top: 0;
+  // @include media(tablet) {
+  //   padding-top: 89px;
+  // }
+}
+
+// Nova portfolio section
+.screen-3 {
+  background-image: url(../../../assets/src/img/homepage/nova_mobilebackground.jpg);
+  background-position: top center;
+  justify-content: flex-start;
+
+  @include media(tablet) {
+    background-image: url(../../../assets/src/img/homepage/nova_tabletbackground.jpg);
+    background-position: center center;
+    justify-content: flex-start;
+  }
+  @include media(desktop) {
+    background-image: url(../../../assets/src/img/homepage/moolah_backgrounddesktop.jpg);
+    // background-position: top center;
+
+    justify-content: center;
+  }
+  .home-cta:focus {
+    // Focus Indicator
+    @include focusOutline($vp-ltnavy);
+  }
+
+  // padding-top: 0;
+  // @include media(tablet) {
+  //   padding-top: 89px;
+  // }
+}
+
+// UNC System - NC Affordable Education section
+.screen-4 {
+  // fallback color for AA a11y
+  background-color: $vp-offblk;
+  background-image: url(../../../assets/src/img/homepage/ncaffordable_mobile.jpg);
+  background-position: center bottom;
+  justify-content: flex-start;
+
+  @include media(tablet) {
+    background-image: url(../../../assets/src/img/homepage/ncaffordable_tablet.jpg);
+    background-position: center center;
+    justify-content: flex-start;
+  }
+
+  @include media(desktop) {
+    background-image: url(../../../assets/src/img/homepage/ncaffordable_desktop.jpg);
+    background-position: left center;
+    justify-content: center;
+  }
+
+  .content {
+    & > * {
+      color: $white;
+    }
+  }
+
+  // padding-top: 0;
+  // @include media(tablet) {
+  //   padding-top: 89px;
+  // }
+}
+
+// Meet a team member section
+.screen-5 {
+  background-image: url(../../../assets/src/img/homepage/josh_mobilebackground.jpg);
+  background-position: top center;
+  justify-content: flex-start;
+
+  @include media(tablet) {
+    background-image: url(../../../assets/src/img/homepage/josh_tabletbackground.jpg);
+    background-position: left center;
+    justify-content: flex-start;
+  }
+  @include media(desktop) {
+    background-image: url(../../../assets/src/img/homepage/joshuadodson_expertsbackground_tall.jpg);
+    background-position: left center;
+    justify-content: center;
+  }
+  .home-cta:focus {
+    // Focus Indicator
+    @include focusOutline($vp-ltnavy);
+  }
+
+  // padding-top: 0;
+  // @include media(tablet) {
+  //   padding-top: 89px;
+  // }
+}
+
+// VisionPoint culture section
+.screen-6 {
+  background-image: url(../../../assets/src/img/homepage/donut_mobilebackground.jpg);
+  background-position: top center;
+  justify-content: flex-start;
+
+  @include media(tablet) {
+    background-image: url(../../../assets/src/img/homepage/donut_tabletbackground.jpg);
+    background-position: center center;
+    justify-content: flex-start;
+  }
+  @include media(desktop) {
+    background-image: url(../../../assets/src/img/homepage/donut-culturebackground.jpg);
+    background-position: top center;
+    justify-content: center;
+  }
+
+  // padding-top: 0;
+  // @include media(tablet) {
+  //   padding-top: 89px;
+  // }
+}
+
+// Eduinsights section
+.screen-7 {
+  background-color: $vp-offwhite;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  justify-content: center;
+
+  .fp-tableCell,
+  .inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+
+    @include media(tablet) {
+      flex-direction: row;
+    }
+    @include media(desktop) {
+      align-items: center;
+    }
+  }
+
+  .content {
+    margin-top: 0;
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    @include media(desktop) {
+      width: 100%;
+    }
+  } // end .screen-7 .content
+
+  h2 {
+    color: $vp-dkblue;
+    margin-bottom: -25px;
+  }
+  .home-cta:focus {
+    // Focus Indicator
+    @include focusOutline($vp-ltnavy);
+  }
+
+  padding-top: 0;
+  @include media(tablet) {
+    padding-top: 89px;
+    justify-content: flex-start;
+  }
+
+  @include media(tablet) {
+    // padding-top: 89px;
+    justify-content: center;
+  }
+
+  // @include media(desktop) {
+  //   padding-top: 89px;
+  //   justify-content: center;
+  // }
+
+  .home-cta {
+    margin-top: rem(49, 16);
+  }
+} // end .screen-7
+
+.header-content p {
+  font-size: 2em;
+  line-height: 1.4;
+  margin-top: 20px;
+}
+
+// fullpage.js overrides
+.fp-tableCell {
+  display: flex;
+}
+
+// navigation
+#fp-nav {
+  position: fixed;
+  right: 15px;
+  z-index: 200;
+  top: 50%;
+  transform: translate(0px, -50%);
+  margin-top: 0 !important;
+}
+
+#fp-nav ul li a span,
+.fp-slidesNav ul li a span {
+  background-color: $vp-ltnavy;
+}
+#fp-nav ul li:hover a span.fp-sr-only,
+#fp-nav ul li:hover a span.fp-sr-only,
+#fp-nav ul li:hover a.active span.fp-sr-only,
+.fp-slidesNav ul li:hover a span.fp-sr-only {
+  visibility: hidden;
+}
+
+.fp-tooltip {
+  display: none !important;
+}
+
+// hover/active state
+// #fp-nav ul li a.active span,
+// .fp-slidesNav ul li a.active span,
+// #fp-nav ul li:hover a.active span,
+// .fp-slidesNav ul li:hover a.active span {
+//   height: 20px;
+//   width: 20px;
+//   margin: -10px 0 0 -10px;
+//   border-radius: 100%;
+// }
+
+// default circle state
+// #fp-nav ul li a span,
+// .fp-slidesNav ul li a span {
+//   height: 10px;
+//   width: 10px;
+// }
+
+// iphone X landscape mode HACK -- TO DO: put hacks in one _shame file?
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {
+  /* Add your styles */
+  .home h1 {
+    font-size: 34px;
+    font-size: rem(34, 16);
+  }
+
+  .screen-1::before {
+    top: 86px;
+    left: auto;
+    right: 0px;
+    height: 90px;
+    width: 45px;
+    border-radius: 0;
+    border-bottom-left-radius: 90px;
+    border-top-left-radius: 90px;
+  }
+
+  .screen-1::after {
+    top: auto;
+    bottom: 15px;
+    right: 0;
+    left: 100px;
+  }
+
+  // navigation
+  #fp-nav {
+    display: none;
+  }
+
+  .home .teaser-grid {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .home .teaser {
+    flex-direction: column;
+    min-height: auto;
+  }
+}
+
+// firefox only HACK -- TO DO: put hacks in one _shame file?
+@media \0 all {
+  .home .teaser {
+    flex-direction: column;
+    min-height: auto;
+    @include media(desktop) {
+      min-height: 30rem;
+    }
+  }
+}
+
+// All sections
+.fp-responsive .fp-auto-height-responsive.fp-section.fp-table {
+  height: 600px !important;
+}
+
+.fp-responsive .fp-auto-height-responsive.fp-section,
+.fp-responsive .fp-auto-height-responsive .fp-tableCell {
+  height: 600px !important;
+}
+
+// Eduinsights
+.home
+  .screen-panel.screen-7.vp-fp-section.fp-auto-height-responsive.fp-section.fp-table {
+  height: auto !important;
+  padding-top: 0px;
+  padding-bottom: 0px !important;
+}
+
+.home
+  .screen-panel.screen-7.vp-fp-section.fp-auto-height-responsive.fp-section.fp-table
+  .fp-tableCell {
+  height: auto !important;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  justify-content: center;
+  align-items: center;
+  // align-content: flex-start;
+}
+
+// Footer
+.home .screen-footer.fp-auto-height-responsive.fp-section.fp-table {
+  height: auto !important;
+
+  padding: 2rem 1rem !important;
+  @include media(tablet) {
+    padding: 2rem 0 1rem 0 !important;
+  }
+}
+
+.home
+  .screen-footer.fp-auto-height-responsive.fp-section.fp-table
+  .fp-tableCell {
+  height: auto !important;
+}
+
+.vp-scroll-indicator {
+  position: absolute;
+  background: $vp-orange;
+  // width: 50px;
+  // height: 50px;
+  width: 100px;
+  height: 100px;
+  bottom: -65px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 300;
+  border-radius: 50%;
+  display: none;
+}

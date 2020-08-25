@@ -1,0 +1,4 @@
+[03-Nov-2019 15:32:19 CST6CDT] PHP Fatal error:  Uncaught Error: Class 'Timber\Timber' not found in /home/vpmdevte/public_html/visionpointmarketing.com/wp-content/themes/vpm/index.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/vpmdevte/public_html/visionpointmarketing.com/wp-content/themes/vpm/index.php on line 19

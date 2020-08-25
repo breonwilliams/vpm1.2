@@ -1,0 +1,15 @@
+<div class="teaser team-member three-col" id="tease-{{post.ID}}">
+
+  <div class="card-content">
+    <a href="{{post.link}}">
+      <div class="team-member-image">
+        <img src="{{ post.thumbnail.src }}" alt="Photo of {{ post.title }}">
+      </div>
+      <h3 class="h3">{{ post.title }}</h3>
+    </a>
+    <p class="category">
+      {{ post.meta('team_work_title') }}
+    </p>
+  </div>
+
+</div>

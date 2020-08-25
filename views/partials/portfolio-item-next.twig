@@ -1,0 +1,12 @@
+{% block portfolio_next(post) %}
+
+{# TODO #}
+
+<p class="portfolio_next-project_title">
+    <a href="{{ post.link }}">{{ post.title }}</a>
+  </p>
+  <p class="category">
+    {{ post.terms('capability')|join(', ') }}
+  </p>
+
+{% endblock portfolio_next %}

@@ -1,0 +1,80 @@
+{# Homepage template #}
+
+{% extends "layouts/homepage.twig" %}
+
+{% block content %}
+
+		<article class="post-type-{{post.post_type}} entry" id="post-{{post.ID}}">
+
+        <section class="homepage-hero alignfull">
+          <div class="container">
+            <h1>We are <span class="text-has_bgGrad">Higher Ed Marketing</span></h1>
+            <p class="intro">Whether we’re creating <span class="text-has_bgGrad">websites</span>, we are always lorem ipsum dolor emeor di et consequis lorem ipsum dolor emet amor di et.</p>
+          </div>
+        </section>
+
+        {# Featured Work Section #}
+        <section class="homepage-work">
+          <div class="container">
+            <h2>Featured <span>Work</span></h2>
+          </div>
+
+            {# Portfolio Carousel #}
+            <div class="slider center">
+
+              {% for portfolio_item in featured_portfolio %}
+
+                <div class="slide" style="background-image: url(' {{ portfolio_item.thumbnail.src }} ');">
+                  <div class="overlay">
+                  <h3><a href="{{ portfolio_item.link }}">{{ portfolio_item.post_title }}</a></h3>
+                </div>
+                </div>
+
+              {% endfor %}
+
+            </div>
+            {# End Portfolio Carousel #}
+
+            <div class="homepage-cta">
+              <a href="/portfolio" class="homepage-cta">See our full portfolio</a>
+            </div>
+
+        </section>
+
+        {# EndFeatured Work Section #}
+
+        {# Featured News Section #}
+        {% set bg_image = Image(post.meta('news_image')).src %}
+        <section class="homepage-news" style="background-image: url(' {{ bg_image }} ');">
+          <div class="container">
+            <h2>VisionPoint <span>News</span></h2>
+            <h3>{{ post.news_title }}</h3>
+            <p>{{ post.news_text }}</p>
+
+            {% if post.news_cta %}
+              <div class="homepage-cta">
+                <a href="{{ post.news_cta.url }}">{{ post.news_cta.title }}</a></div>
+            {% endif %}
+
+          </div>
+        </section>
+        {# End Featured News Section #}
+
+        {# EduInsights Section #}
+        <div class="container">
+          <section class="homepage-eduinsights teaser-grid">
+            {% for post in newest_posts %}
+              {% include ['tease.twig'] %}
+            {% endfor %}
+          </section>
+
+          <div class="homepage-cta">
+            <a href="/eduinsights" class="homepage-cta">Explore EduInsights</a>
+          </div>
+
+        </div>
+        {# End EduInsights Section #}
+
+		</article>
+
+{% endblock %}

@@ -1,0 +1,106 @@
+// Styles specific for the Contact Us page only (/contact-us)
+.page-contact-us {
+  .page-content {
+    form.wpcf7-form {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: $spacer 0 $spacer * 3 0;
+
+      p {
+        font-family: $font-family-serif;
+        font-size: 1.5rem;
+        color: $vp-ltnavy;
+        margin-bottom: $spacer * 1.2;
+      }
+
+      // label {
+      //   display: none;
+      // }
+
+      input[type='email'],
+      input[type='text'],
+      select,
+      option {
+        border: none;
+        border-bottom: solid 1px #a5d8e4;
+        background-color: $white;
+        color: $vp-ltnavy;
+        margin: 0 $spacer;
+        width: 230px;
+        font-family: $font-family-sans-serif;
+        font-size: 1rem;
+        font-style: italic;
+        padding: $spacer * 0.1 0;
+
+        &.wpcf7-validates-as-required {
+          &::after {
+            content: '*';
+            display: inline-block;
+            color: red;
+            position: relative;
+            width: 30px;
+          }
+        }
+
+        @include media(tablet) {
+          width: 300px;
+          font-size: 1rem;
+        }
+
+        &::placeholder {
+          color: $vp-ltnavy;
+        }
+      }
+
+      input[required='required']:after {
+        color: red;
+        content: ' *';
+      }
+
+      input[id^='company'],
+      input[id^='comments'],
+      select {
+        @include media(tablet) {
+          width: 600px;
+        }
+      }
+
+      input[type='submit'],
+      button {
+        background-color: $vp-ltblue;
+        color: $white;
+        font-size: 1rem;
+        border: none;
+        border-radius: 20px;
+        padding: $spacer * 0.5 $spacer;
+        margin-top: $spacer;
+
+        &:hover {
+          background-color: $vp-dkblue;
+        }
+
+        i {
+          font-size: 20px;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}
+
+// Thank-you message
+div.wpcf7-mail-sent-ok,
+div.wpcf7-response-output {
+  border: none;
+  padding: 0;
+  margin: $spacer 0;
+  font-family: $font-family-serif;
+  color: $vp-ltnavy;
+  font-size: 26px;
+  font-size: rem(26, 16);
+
+  @include media(desktop) {
+    font-size: 36px;
+    font-size: rem(36, 16);
+  }
+}

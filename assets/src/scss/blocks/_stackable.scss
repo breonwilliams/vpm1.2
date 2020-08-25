@@ -1,0 +1,20 @@
+.wp-block-ugb-container {
+
+  &.alignfull {
+    margin: 32px calc(50% - 50vw);
+    max-width: 100vw;
+    width: 100vw;
+  }
+}
+
+// card block -> button
+.ugb-card {
+  .ugb-button {
+    padding: ($spacer * 0.8) $spacer*1.4;
+    white-space: nowrap;
+
+    .ugb-button--inner {
+      display: inline-block;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{% macro breadcrumbs( page_label, page_url ) %}
+
+{% set separator = '  |  ' %}
+
+  <div class="container">
+    <p class="breadcrumbs">
+      <span><a href="/">home</a></span>
+      <span class="separator">{{separator}}</span>
+      <span><a href="/{{ page_url }}">{{ page_label }}</a></span>
+    </p>
+  </div>
+{% endmacro %}

@@ -1,0 +1,40 @@
+{% extends "layouts/base.twig" %}
+
+{# add class vp-page-team to body classes for team page only #}
+{% set body_class = body_class ~ " vp-page-team" %}
+
+{# {% block pagebreadcrumbs %}
+  {% import 'partials/breadcrumbs-page.twig' as bc %}
+  {{ bc.breadcrumbs( 'team','team' ) }}
+{% endblock %} #}
+
+{% block content %}
+
+  {# Inner menu #}
+  <div class="page-inner-navigation">
+    {% include "partials/inner-nav.twig" %}
+  </div>
+
+  <div class="page-header">
+    <div class="container">
+      <h1 class="article-h1 has-subtitle">Our Team</h1>
+      <h2 class="subtitle">
+        <span class="subtitle-line-1">We are</span>
+        <span class="subtitle-line-2">MARKETERS. ANALYSTS. CREATIVES. LEADERS.</span>
+      </h2>
+    </div>
+
+  </div>
+
+  <div class="container">
+
+    <div class="teaser-grid">
+      {% for post in posts %}
+        {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+      {% endfor %}
+    </div>
+
+  </div>
+
+{% endblock %}
+

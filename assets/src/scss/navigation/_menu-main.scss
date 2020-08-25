@@ -1,0 +1,357 @@
+/** === Main menu === */
+
+.main-navigation {
+  position: relative;
+  height: 69px;
+
+  .panel {
+    overflow: scroll;
+  }
+
+  &.navbar {
+    // padding: 0;
+    padding: rem(16, 16) rem(0, 16);
+  }
+
+  #menu {
+    background: $vp-ltblue;
+    position: absolute;
+    top: 69px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    min-height: 100vh;
+    padding-top: 3vh;
+    padding-left: rem(
+      45,
+      16
+    ); // added to account for 45px open/close button on mobile
+    padding-right: rem(
+      45,
+      16
+    ); // added to account for 45px open/close button on mobile
+    @include media(desktop) {
+      padding-top: 10vh;
+      padding-left: 15px; // default bs4 padding
+      padding-right: 15px; // default bs4 padding
+    }
+    z-index: 2000;
+    transition: all ease-out 0.2s;
+
+    .nav {
+      text-align: left;
+      height: 100%;
+
+      .nav-item {
+        height: calc(100vh / 8);
+        display: block;
+      }
+
+      .nav-item a {
+        // font-size: rem(30, 16);
+        font-size: 5vh;
+        font-family: $font-family-sans-serif;
+        font-weight: bold;
+        display: block;
+        // padding: 0.75rem 0 0.75 rem 0;
+        padding-bottom: 2vh;
+        color: $white;
+        text-transform: uppercase;
+        border-bottom: solid 1px #2bb5d6;
+        transition: all ease-out 0.2s;
+
+        @include media(desktop) {
+          max-width: 30vw;
+          // font-size: rem(36, 16);
+        }
+
+        &:focus {
+          // Focus Indicator
+          @include focusOutline($vp-white);
+          text-decoration: underline;
+        }
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      .nav-item .nav-drop {
+        padding-left: 0;
+
+        @include media(desktop) {
+          padding-left: rem(40, 16);
+        }
+
+        li {
+          list-style: none;
+        }
+
+        a {
+          font-size: 1.5rem;
+          font-family: $font-family-sans-serif;
+          font-weight: normal;
+          display: block;
+          padding: 1rem 0;
+          color: $white;
+          text-transform: none;
+          border-bottom: none;
+          transition: none;
+
+          @include media(desktop) {
+            border-bottom: solid 1px transparent;
+            transition: all ease-out 0.2s;
+          }
+
+          &:focus {
+            // Focus Indicator
+            @include focusOutline($vp-white);
+            text-decoration: underline;
+          }
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+
+      &:focus .nav-item,
+      &:hover .nav-item {
+        a {
+          color: rgba(255, 255, 255, 1);
+
+          @include media(desktop) {
+            color: rgba(255, 255, 255, 0.5);
+          }
+
+          &:hover {
+            color: $white;
+            transition: none;
+            @include media(desktop) {
+              transition: all ease-out 0.2s;
+            }
+            text-decoration: none;
+          }
+        }
+      }
+
+      &:focus,
+      &:hover .nav-drop {
+        a {
+          color: rgba(255, 255, 255, 1);
+          @include media(desktop) {
+            color: rgba(255, 255, 255, 0.5);
+          }
+          &:hover {
+            color: $white;
+            transition: none;
+            @include media(desktop) {
+              transition: all ease-out 0.2s;
+            }
+            text-decoration: none;
+          }
+        }
+      }
+
+      li {
+        &.menu-item-has-children:focus,
+        &.menu-item-has-children:hover {
+          .nav-drop {
+            // display: none;
+            position: relative;
+            top: 0px;
+            left: 0;
+            border-left: none;
+            height: auto;
+            margin-left: 0;
+
+            @include media(desktop) {
+              display: block;
+              position: absolute;
+              top: 0;
+              left: 30vw;
+              border-left: 1px solid #2bb5d6;
+              height: 70vh;
+              margin-left: 45px;
+            }
+          }
+          @include media(desktop) {
+            position: relative;
+          }
+
+          > a {
+            margin-right: #{0.125 * $spacer};
+          }
+
+          & > a,
+          .menu-item-has-children > a {
+            &:after {
+              content: '';
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* Un-style buttons */
+  button.header-menu-button {
+    display: inline-block;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: $font-family-serif;
+    font-weight: 700;
+    text-decoration: none;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    &:focus,
+    &:hover {
+      background: transparent;
+    }
+
+    &:active {
+      transform: scale(0.99);
+    }
+  }
+}
+.navbar-btn {
+  .hamburger-box {
+    width: 25px;
+    height: 8px;
+    display: inline-block;
+    position: relative;
+  }
+
+  .hamburger-inner {
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    top: 50%;
+    &,
+    &::before,
+    &::after {
+      width: 100%;
+      height: 4px;
+      content: '';
+      display: block;
+      background-color: $vp-ltnavy;
+      border-radius: 3px;
+      position: absolute;
+      transition: transform 0.15s ease;
+    }
+    &::before {
+      top: -9px;
+      transition: top 0.1s ease-out, opacity 0.1s 0.14s ease-out,
+        background-color 0.15s ease;
+    }
+    &::after {
+      bottom: -9px;
+      transition: bottom 0.1s 0.34s ease-in,
+        transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19),
+        background-color 0.15s ease;
+    }
+  }
+  &[aria-expanded='true'] {
+    .hamburger-inner {
+      transform: rotate(225deg);
+      transition-delay: 0.14s;
+      transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      background-color: $vp-ltnavy;
+      &::before {
+        top: 0;
+        background-color: $white;
+        opacity: 0;
+      }
+      &::after {
+        bottom: 0;
+        transform: rotate(-90deg);
+        transition: bottom 0.1s ease-out,
+          transform 0.3s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1),
+          background-color 0.15s ease;
+        background-color: $vp-ltnavy;
+      }
+    }
+  }
+}
+
+.menu-item-has-children .nav-drop {
+  display: none;
+  @include media(desktop) {
+    display: block;
+  }
+}
+
+// Mobile Menu
+.vp-subnav-icon {
+  width: rem(45, 16);
+  height: rem(45, 16);
+  border: 0;
+  display: block;
+  background: transparent;
+  color: $white;
+  position: absolute;
+  left: rem(-45, 16);
+  top: 40%;
+  transform: translateY(-50%);
+  font-size: rem(24, 16);
+
+  @include media(desktop) {
+    display: none;
+  }
+
+  &:after {
+    position: relative;
+    width: 100%;
+    height: rem(45, 16);
+    @include fa5DefaultCSS();
+    @include fa5SetIcon('\f068');
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    align-content: center;
+  }
+  &:focus,
+  &:hover {
+    text-decoration: none;
+    background-color: transparent;
+    // Focus Indicator
+    @include focusOutline($vp-white);
+  }
+}
+
+.vp-subnav-icon.collapsed {
+  @extend .vp-subnav-icon;
+  &:after {
+    @include fa5SetIcon('\f067');
+  }
+}
+
+.menu-item-has-children .nav-drop.collapse.show {
+  display: block;
+  @include media(desktop) {
+    display: none;
+  }
+}
+
+.menu-item-has-children .nav-drop {
+  position: relative;
+  display: none;
+  border-bottom: 1px solid #2bb5d6;
+  @include media(desktop) {
+    position: absolute;
+    border-bottom: none;
+  }
+}
+
+// BS4 override, default BS4 transition adds too much delay to menu opening
+.menu-item-has-children .nav-drop.collapsing {
+  height: auto;
+  transition: none;
+}

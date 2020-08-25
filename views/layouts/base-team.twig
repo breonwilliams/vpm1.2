@@ -1,0 +1,46 @@
+{% block html_head_container %}
+    {% include 'html-header.twig' %}
+    {% block head %}
+    {% endblock %}
+    </head>
+{% endblock %}
+<body class="{{body_class}}" data-template="base.twig">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MRFS2Q6"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+{% block header %}
+    {% include 'partials/header.twig' %}
+{% endblock header %}
+
+    <div style="flex-grow: 1;">
+      <section id="content" role="main" class="wrapper content-wrapper clearfix vp-team-page">
+          <div class="entry-content">
+            <div class="wrapper {{sidebar_class}}">
+
+                {% block content %}
+                    Sorry, no content
+                {% endblock %}
+            </div>
+          </div><!-- /.entry-content -->
+      </section>
+    </div>
+
+{% block footer %}
+    {% include 'footer.twig' %}
+    {{ function('wp_footer') }}
+{% endblock %}
+{# {% block javascripts%}
+    <script src="{{site.theme.link}}/assets/build/js/all.min.js"></script>
+{% endblock %} #}
+{% block javascripts%}
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    {# <script src="{{site.theme.link}}/assets/src/js/site.js"></script> #}
+{% endblock %}
+</body>
+</html>

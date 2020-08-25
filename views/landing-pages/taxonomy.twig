@@ -1,0 +1,31 @@
+{% extends "layouts/base.twig" %}
+
+{# {% block pagebreadcrumbs %}
+  {% import 'partials/breadcrumbs-page.twig' as bc %}
+  {{ bc.breadcrumbs( 'portfolio','portfolio' ) }}
+{% endblock %} #}
+
+{% block content %}
+
+{{ dump(data) }}
+  <div class="container">
+    {% if title %}<h1>{{title}}</h1>{% endif %}
+  </div>
+
+  <div class="container">
+
+    <div class="teaser-grid">
+      {% for post in posts %}
+        {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+      {% endfor %}
+    </div>
+
+
+    {# {% if posts.pagination.next %}
+        <a href="{{posts.pagination.next.link}}" class="next {{posts.pagination.next.link|length ? '' : 'invisible'}}">Next</a>
+    {% endif %} #}
+
+  </div>
+
+{% endblock %}
+

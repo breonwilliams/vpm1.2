@@ -1,0 +1,23 @@
+<!-- INNER NAVIGATION MENU
+---- show second level links for current page if those exist
+-->
+
+{% block anchor_nav %}
+
+    <ul class="anchor-nav">
+      {% for item in menu.items %}
+
+        {% if item.current and item.children %}
+
+          {# Display all other items in the submenu #}
+          {% for child in item.children %}
+            <li class="nav-child-item">
+              <a class="nav-child-link" href="{{ child.link }}">{{ child.title }}</a>
+            </li>
+          {% endfor %}
+        {% endif %}
+
+      {% endfor %}
+    </ul>
+
+{% endblock anchor_nav %}

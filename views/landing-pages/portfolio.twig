@@ -1,0 +1,45 @@
+{% extends "layouts/base.twig" %}
+
+{# {% block pagebreadcrumbs %}
+  {% import 'partials/breadcrumbs-page.twig' as bc %}
+  {{ bc.breadcrumbs( 'portfolio','portfolio' ) }}
+{% endblock %} #}
+
+{% block content %}
+  <div class="container">
+    {% if title %}
+      <h1>
+        {{title}} {% if sub_title %} <span>: {{ sub_title }}</span> {% endif %}
+      </h1>
+    {% endif %}
+
+  </div>
+
+  <div class="container">
+
+    <div class="teaser-grid">
+
+      {% for post in posts %}
+        {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+      {% endfor %}
+
+    {# If the number of posts is odd, then add a placeholder card at the end with the link to Contact Us page #}
+
+    {% if posts.count is odd %}
+
+      <div class="teaser two-col" id="tease-{{post.ID}}" style="background-image: url(' {{ theme.link }}/assets/src/img/readytoworkwithus.jpg');">
+        <div class="overlay">
+          <div class="card-content">
+            <h3 class="h3"><a href="/contact-us">Ready to work with us?</a></h3>
+          </div>
+        </div>
+      </div>
+
+    {% endif%}
+
+    </div>
+
+  </div>
+
+{% endblock %}
+

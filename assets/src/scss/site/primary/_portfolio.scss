@@ -1,0 +1,108 @@
+.single-portfolio {
+  // offset the headings, paragraphs, lists, and block buttons for larger screen
+  .article-content {
+    @include media(desktop) {
+      & > p,
+      & > h2,
+      & > h3,
+      & > h4,
+      & > ol,
+      & > ul,
+      & > blockquote,
+      & > .wp-block-button {
+        margin-left: $spacer * 10;
+        margin-right: $spacer * 10;
+      }
+    }
+  }
+
+  .category {
+    font-family: $font-family-sans-serif;
+    margin-bottom: 3 * $spacer;
+    font-size: 1.2rem;
+    color: $vp-header-grey;
+  }
+  .portfolio_next-project {
+    background-color: $vp-dkblue;
+    color: $white;
+    padding: $spacer*4 0 $spacer 0;
+
+    h3 {
+      color: $white;
+      font-family: $font-family-bold-sans-serif;
+      @include font-size(1.6);
+      text-transform: capitalize;
+      margin-bottom: 2px;
+
+      &::after {
+        content: '\f30b';
+        display: inline-block;
+        margin: 0 0 0 $spacer;
+        font-family: $font-family-fa;
+        font-size: 26px;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        line-height: 1;
+        font-weight: 900;
+        vertical-align: middle;
+      }
+    }
+    .portfolio_next-project_title {
+      @extend h1;
+      @include font-size(3);
+      margin-top: 0;
+      margin-bottom: $spacer * 0.7;
+      padding-top: 0;
+      a {
+        color: $white;
+      }
+      a:focus {
+        // Focus Indicator
+        @include focusOutline($vp-white);
+        text-decoration: underline;
+      }
+    }
+    .category {
+      color: $white;
+    }
+  }
+}
+
+// override the overlay gradient and teaser background placement  for portfolio listing page only
+.page-portfolio {
+
+  .teaser {
+    background-position-x: center;
+  }
+
+  .teaser .overlay {
+    @include vp-gradient(0, 15%, 0.7, 60%, 0.9, 90%);
+    padding-top: $spacer*3;
+  }
+}
+
+// CU Boulder portfolio item
+.portfolio-university-of-colorado-boulder {
+  .wp-block-columns.has-3-columns {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+    @include media(desktop) {
+      flex-direction: row;
+      justify-content: flex-start;
+      align-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .wp-block-image .alignright {
+      float: none;
+      margin-left: 0;
+      @include media(desktop) {
+        float: right;
+        margin-left: 1em;
+      }
+    }
+  }
+}

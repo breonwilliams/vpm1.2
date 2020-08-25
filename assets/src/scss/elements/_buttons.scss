@@ -1,0 +1,72 @@
+.vp-button,
+.page-content a.vp-button,
+.article-body a.vp-button {
+  @include button-transition;
+  background-color: $vp-ltblue;
+  color: $white;
+  font-size: 1rem;
+  box-sizing: border-box;
+  font-family: $font-family-bold-sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  padding: ($spacer * 0.5) $spacer * 2;
+  display: inline-block;
+  margin-bottom: $spacer;
+  border-radius: 20px;
+
+  &:focus {
+    // Focus Indicators
+    @include focusOutline($vp-ltnavy);
+    color: $vp-white;
+    background-color: $vp-ltnavy;
+    text-decoration: underline;
+  }
+
+  &:hover {
+    background-color: $vp-ltnavy;
+    color: $vp-white;
+    text-decoration: none;
+  }
+}
+
+button {
+  @include button-transition;
+  &:focus {
+    // Focus Indicator
+    @include focusOutline($vp-ltnavy);
+    color: $vp-white;
+    background-color: $vp-ltnavy;
+    text-decoration: underline;
+  }
+}
+
+.vp-button {
+  &::after {
+    content: '\f30b';
+    display: inline-block;
+    margin: 0 0 0 $spacer * 0.5;
+    font-family: $font-family-fa;
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1.1;
+    font-weight: 900;
+    vertical-align: bottom;
+  }
+}
+
+// Focus Indicators
+*:focus {
+  @include focusOutline($vp-ltnavy);
+}
+
+// bs4 override
+.btn {
+  &:focus {
+    @include focusOutline($vp-ltnavy);
+    color: $vp-white;
+    background-color: $vp-ltnavy;
+    text-decoration: underline;
+  }
+}
