@@ -17,10 +17,10 @@
 <div id="fullpage">
 
 {# Screen 1 - Intro #}
-<section class="screen-panel screen-1 vp-fp-section" data-anchor="screen-1" style="background-image: linear-gradient(to bottom,rgba(28,40,85,0.6),rgba(28,40,85,0.6)),url({{ Image(post.meta('hero_image')).src }});">
+<section class="screen-panel screen-1 vp-fp-section" data-anchor="screen-1" style="background-image: linear-gradient(to bottom,rgba(28,40,85,0.6),rgba(28,40,85,0.6)),url({{ Image(post.meta('hero_section').hero_image).src }});">
   <div class="container d-flex justify-content-center align-items-center vp-fg-panel_content">
     <div class="header-content vp-is-hidden vpa-fade vpa-slide-edge-bottom">
-      {{ post.meta('hero') }}
+      {{ post.meta('hero_section').hero }}
     </div>
     {# <div class="gallery0"><a href="/#" class="home-start-bubble">Start a conversation</a></div> #}
   </div>
@@ -28,56 +28,46 @@
 </section>
 
 {# Screen 2 - Portfolio Item 1 #}
-<section class="screen-panel screen-2 vp-fp-section fp-auto-height-responsive" data-anchor="screen-2">
+<section class="screen-panel screen-2 vp-fp-section fp-auto-height-responsive" data-anchor="screen-2" style="background-image: url({{ Image(post.meta('section_one').section_background_image).src }});">
   <div class="inner">
     <div class="content vpa-on-scroll-to vpa-slide-edge-bottom">
-      <h2>CU Boulder EMP</h2>
-      <p>As MBA applications plummeted nationwide, the University of Colorado Boulder decided to launch a graduate engineering degree infused with business acumen — the Engineering Management Program (EMP). We developed an integrated marketing campaign with creative that would catch the eye of business-minded engineers seeking their next step.</p>
-      <p><a href="/portfolio/university-of-colorado-boulder/" class="home-cta">View Full Project</a></p>
+      {{ post.meta('section_one').section_content }}
     </div>
   </div>
 </section>
 
 {# Screen 3 - Portfolio Item 2 #}
-<section class="screen-panel screen-3 vp-fp-section fp-auto-height-responsive" data-anchor="screen-3">
+<section class="screen-panel screen-3 vp-fp-section fp-auto-height-responsive" data-anchor="screen-3" style="background-image: url({{ Image(post.meta('section_two').section_background_image).src }});">
   <div class="inner">
     <div class="content vpa-on-scroll-to vpa-slide-edge-bottom">
-      <h2>Northern Virginia Community College</h2>
-      <p>Several design elements serve as stylistic motifs throughout these commercials and across "Settle for..." campaign ads, unifying the campaign across all channels. All the ads feature individuals against nondescript white backdrops, while VisionPoint's hand-drawn graffiti animations add personality and power to the ads' various messaging points.</p>
-      <p><a href="/portfolio/northern-virginia-community-college/" class="home-cta">View Full Project</a></p>
+      {{ post.meta('section_two').section_content }}
     </div>
   </div>
 </section>
 
 {# Screen 4 - Portfolio Item 3 #}
-<section class="screen-panel screen-4 vp-fp-section fp-auto-height-responsive" data-anchor="screen-4">
+<section class="screen-panel screen-4 vp-fp-section fp-auto-height-responsive" data-anchor="screen-4" style="background-image: url({{ Image(post.meta('section_three').section_background_image).src }});">
   <div class="inner">
     <div class="content vpa-on-scroll-to vpa-slide-edge-bottom">
-      <h2>UNC System - NC Affordable Education</h2>
-      <p>To raise awareness for UNC System’s transformative initiatives, we conducted comprehensive quantitative and qualitative research on a variety of audience segments, including traditionally underprivileged counties.</p>
-      <p><a href="/portfolio/unc-system-nc-affordable-education/" class="home-cta">View Full Project</a></p>
+      {{ post.meta('section_three').section_content }}
     </div>
   </div>
 </section>
 
 {# Screen 5 - Team Member #}
-<section class="screen-panel screen-5 vp-fp-section fp-auto-height-responsive" data-anchor="screen-5">
+<section class="screen-panel screen-5 vp-fp-section fp-auto-height-responsive" data-anchor="screen-5" style="background-image: url({{ Image(post.meta('section_four').section_background_image).src }});">
   <div class="inner">
     <div class="content vpa-on-scroll-to vpa-slide-edge-bottom">
-      <h2>Meet Joshua Dodson</h2>
-      <p>Josh doesn’t just strategize, he delivers results. He brings to our clients his uncanny ability to design strategy, execute tactically and measure ROI, and has helped countless institutions modernize their enrollment and marketing programs.</p>
-      <p><a href="/meet-josh-dodson/" class="home-cta">Learn More About Josh</a></p>
+      {{ post.meta('section_four').section_content }}
     </div>
   </div>
 </section>
 
 {# Screen 6 - VPM Culture #}
-<section class="screen-panel screen-6 vp-fp-section fp-auto-height-responsive" data-anchor="screen-6">
+<section class="screen-panel screen-6 vp-fp-section fp-auto-height-responsive" data-anchor="screen-6" style="background-image: url({{ Image(post.meta('section_five').section_background_image).src }});">
   <div class="inner">
     <div class="content vpa-on-scroll-to vpa-slide-edge-bottom">
-      <h2>VisionPoint Culture</h2>
-      <p>On any given day, you may find us with furry friend visitors in our office, in a luau-themed staff meeting, or ideating on how to develop our employees professionally and personally. Sure, we work hard, but we also play hard. That’s why we are perennially chosen as one of the top employers in our state, why we have a noticeably low turnover rate, and why our employees genuinely love coming to work each day.</p>
-      <p><a href="/about-us/culture/" class="home-cta">See Our Culture</a></p>
+      {{ post.meta('section_five').section_content }}
     </div>
   </div>
 </section>
