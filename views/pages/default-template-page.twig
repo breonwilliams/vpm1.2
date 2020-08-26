@@ -32,15 +32,17 @@
               <h1 class="article-h1">{{post.title}}</h1>
             {% endif %}
 
-            {# Anchor menu - temporary, for Capabilities page only#}
-            {% if post.slug == "capabilities" %}
-              <div class="page-anchor-navigation">
-                {% include "partials/anchor-nav.twig" %}
-              </div>
-            {% endif %}
+
 
           </div>
-
+					{# Anchor menu - temporary, for Capabilities page only#}
+					{% if post.slug == "capabilities" %}
+						<div class="page-inner-navigation">
+						<div class="container">
+							{% include "partials/anchor-nav.twig" %}
+						</div>
+						</div>
+					{% endif %}
         </div>
 
 				<div class="container">
