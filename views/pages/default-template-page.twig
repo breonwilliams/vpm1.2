@@ -5,19 +5,14 @@
 		<article class="post-type-{{post.post_type}} entry" id="post-{{post.ID}}">
         <div class="page-header">
 
-          {# Inner menu #}
-          {% if post.slug != "capabilities" %}
-            <div class="page-inner-navigation">
-              {% include "partials/inner-nav.twig" %}
-            </div>
-          {% endif %}
+
 
           <div class="container">
 
             {# Add link to parent if it exists #}
             {% if post.post_parent %}
               <div class="page-parent-link">
-                <a href="{{ post.parent.link }}">{{ post.parent.title }}</a>
+                <h1 class="article-h1 has-subtitle"><a href="{{ post.parent.link }}">{{ post.parent.title }}</a></h1>
               </div>
             {% endif%}
 
@@ -35,8 +30,25 @@
 
 
           </div>
+
+					{# Inner menu #}
+          {% if post.slug != "capabilities" %}
+            <div class="page-inner-navigation">
+              {% include "partials/inner-nav.twig" %}
+            </div>
+          {% endif %}
+
 					{# Anchor menu - temporary, for Capabilities page only#}
 					{% if post.slug == "capabilities" %}
+						<div class="page-inner-navigation">
+						<div class="container">
+							{% include "partials/anchor-nav.twig" %}
+						</div>
+						</div>
+					{% endif %}
+
+					{# Anchor menu - temporary, for Capabilities page only#}
+					{% if post.slug == "about-us" %}
 						<div class="page-inner-navigation">
 						<div class="container">
 							{% include "partials/anchor-nav.twig" %}
