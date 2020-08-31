@@ -10,16 +10,18 @@
 
 {% block content %}
 
-  {# Inner menu #}
-  <div class="page-inner-navigation">
-    {% include "partials/inner-nav.twig" %}
-  </div>
+
 
   <div class="page-header">
     <div class="container">
 {{ options.header_content }}
     </div>
 
+    {# Inner menu #}
+    <div class="page-inner-navigation">
+      {% include "partials/inner-nav.twig" %}
+    </div>
+    
   </div>
 
   <div class="container">

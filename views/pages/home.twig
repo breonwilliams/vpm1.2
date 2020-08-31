@@ -16,8 +16,102 @@
 
 <div id="fullpage">
 
+<style type='text/css'>
+
+{# Hero Section - Intro #}
+  {% if Image(post.meta('hero_section').hero_image).src %}
+  .screen-panel.screen-1 {
+  background-image: linear-gradient(to bottom,rgba(28,40,85,0.6),rgba(28,40,85,0.6)), url({{ Image(post.meta('hero_section').hero_image).src }})!important;
+  }
+  {% endif %}
+
+{# Section 1 - Portfolio Item 1 #}
+  {% if Image(post.meta('section_one').section_background_image).src %}
+  .screen-2 {
+  background-image: url({{ Image(post.meta('section_one').section_background_image).src }})!important;
+  }
+  {% endif %}
+
+  {% if Image(post.meta('section_one').section_mobile_background_image).src %}
+  @media (max-width: 768px) {
+    .screen-2 {
+  background-image: url({{ Image(post.meta('section_one').section_mobile_background_image).src }})!important;
+  }
+  }
+  {% endif %}
+
+
+
+  {# Section 2 - Portfolio Item 2 #}
+    {% if Image(post.meta('section_two').section_background_image).src %}
+    .screen-3 {
+    background-image: url({{ Image(post.meta('section_two').section_background_image).src }})!important;
+    }
+    {% endif %}
+
+    {% if Image(post.meta('section_two').section_mobile_background_image).src %}
+    @media (max-width: 768px) {
+      .screen-3 {
+    background-image: url({{ Image(post.meta('section_two').section_mobile_background_image).src }})!important;
+    }
+    }
+    {% endif %}
+
+
+
+    {# Section 3 - Portfolio Item 3 #}
+      {% if Image(post.meta('section_three').section_background_image).src %}
+      .screen-4 {
+      background-image: url({{ Image(post.meta('section_three').section_background_image).src }})!important;
+      }
+      {% endif %}
+
+      {% if Image(post.meta('section_three').section_mobile_background_image).src %}
+      @media (max-width: 768px) {
+        .screen-4 {
+      background-image: url({{ Image(post.meta('section_three').section_mobile_background_image).src }})!important;
+      }
+      }
+      {% endif %}
+
+
+
+      {# Section 4 - Portfolio Item 4 #}
+        {% if Image(post.meta('section_four').section_background_image).src %}
+        .screen-5 {
+        background-image: url({{ Image(post.meta('section_four').section_background_image).src }})!important;
+        }
+        {% endif %}
+
+        {% if Image(post.meta('section_four').section_mobile_background_image).src %}
+        @media (max-width: 768px) {
+          .screen-5 {
+        background-image: url({{ Image(post.meta('section_four').section_mobile_background_image).src }})!important;
+        }
+        }
+        {% endif %}
+
+
+
+        {# Section 5 - Portfolio Item 5 #}
+          {% if Image(post.meta('section_five').section_background_image).src %}
+          .screen-6 {
+          background-image: url({{ Image(post.meta('section_five').section_background_image).src }})!important;
+          }
+          {% endif %}
+
+          {% if Image(post.meta('section_five').section_mobile_background_image).src %}
+          @media (max-width: 768px) {
+            .screen-6 {
+          background-image: url({{ Image(post.meta('section_five').section_mobile_background_image).src }})!important;
+          }
+          }
+          {% endif %}
+
+</style>
+
 {# Screen 1 - Intro #}
-<section class="screen-panel screen-1 vp-fp-section" data-anchor="screen-1" style="background-image: linear-gradient(to bottom,rgba(28,40,85,0.6),rgba(28,40,85,0.6)),url({{ Image(post.meta('hero_section').hero_image).src }});">
+<section class="screen-panel screen-1 vp-fp-section" data-anchor="screen-1">
   <div class="container d-flex justify-content-center align-items-center vp-fg-panel_content">
     <div class="header-content vp-is-hidden vpa-fade vpa-slide-edge-bottom">
       {{ post.meta('hero_section').hero }}
@@ -28,7 +122,7 @@
 </section>
 
 {# Screen 2 - Portfolio Item 1 #}
-<section class="screen-panel screen-2 vp-fp-section fp-auto-height-responsive" data-anchor="screen-2" style="background-image: url({{ Image(post.meta('section_one').section_background_image).src }});">
+<section class="screen-panel screen-2 vp-fp-section fp-auto-height-responsive" data-anchor="screen-2">
   <div class="inner">
     <div class="content vpa-on-scroll-to vpa-slide-edge-bottom">
       {{ post.meta('section_one').section_content }}
@@ -37,7 +131,7 @@
 </section>
 
 {# Screen 3 - Portfolio Item 2 #}
-<section class="screen-panel screen-3 vp-fp-section fp-auto-height-responsive" data-anchor="screen-3" style="background-image: url({{ Image(post.meta('section_two').section_background_image).src }});">
+<section class="screen-panel screen-3 vp-fp-section fp-auto-height-responsive" data-anchor="screen-3">
   <div class="inner">
     <div class="content vpa-on-scroll-to vpa-slide-edge-bottom">
       {{ post.meta('section_two').section_content }}
@@ -46,7 +140,7 @@
 </section>
 
 {# Screen 4 - Portfolio Item 3 #}
-<section class="screen-panel screen-4 vp-fp-section fp-auto-height-responsive" data-anchor="screen-4" style="background-image: url({{ Image(post.meta('section_three').section_background_image).src }});">
+<section class="screen-panel screen-4 vp-fp-section fp-auto-height-responsive" data-anchor="screen-4">
   <div class="inner">
     <div class="content vpa-on-scroll-to vpa-slide-edge-bottom">
       {{ post.meta('section_three').section_content }}
@@ -55,7 +149,7 @@
 </section>
 
 {# Screen 5 - Team Member #}
-<section class="screen-panel screen-5 vp-fp-section fp-auto-height-responsive" data-anchor="screen-5" style="background-image: url({{ Image(post.meta('section_four').section_background_image).src }});">
+<section class="screen-panel screen-5 vp-fp-section fp-auto-height-responsive" data-anchor="screen-5">
   <div class="inner">
     <div class="content vpa-on-scroll-to vpa-slide-edge-bottom">
       {{ post.meta('section_four').section_content }}
