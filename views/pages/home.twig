@@ -33,7 +33,7 @@
   {% endif %}
 
   {% if Image(post.meta('section_one').section_mobile_background_image).src %}
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
     .screen-2 {
   background-image: url({{ Image(post.meta('section_one').section_mobile_background_image).src }})!important;
   }
@@ -50,7 +50,7 @@
     {% endif %}
 
     {% if Image(post.meta('section_two').section_mobile_background_image).src %}
-    @media (max-width: 768px) {
+    @media (max-width: 1200px) {
       .screen-3 {
     background-image: url({{ Image(post.meta('section_two').section_mobile_background_image).src }})!important;
     }
@@ -67,7 +67,7 @@
       {% endif %}
 
       {% if Image(post.meta('section_three').section_mobile_background_image).src %}
-      @media (max-width: 768px) {
+      @media (max-width: 1200px) {
         .screen-4 {
       background-image: url({{ Image(post.meta('section_three').section_mobile_background_image).src }})!important;
       }
@@ -84,7 +84,7 @@
         {% endif %}
 
         {% if Image(post.meta('section_four').section_mobile_background_image).src %}
-        @media (max-width: 768px) {
+        @media (max-width: 1200px) {
           .screen-5 {
         background-image: url({{ Image(post.meta('section_four').section_mobile_background_image).src }})!important;
         }
@@ -101,7 +101,7 @@
           {% endif %}
 
           {% if Image(post.meta('section_five').section_mobile_background_image).src %}
-          @media (max-width: 768px) {
+          @media (max-width: 1200px) {
             .screen-6 {
           background-image: url({{ Image(post.meta('section_five').section_mobile_background_image).src }})!important;
           }
