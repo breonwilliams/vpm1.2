@@ -574,3 +574,4 @@ function cp_change_post_object() {
 new StarterSite();
 
 include_once get_theme_file_path( 'assets/inc/acf-options.php' );
+include_once get_theme_file_path( 'assets/inc/acf-field-groups.php' );
